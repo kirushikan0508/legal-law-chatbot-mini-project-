@@ -21,3 +21,15 @@ GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
 os.environ["PINECONE_API_KEY"] = PINECONE_API_KEY
 os.environ["GEMINI_API_KEY"] = GEMINI_API_KEY
+
+
+# -------------------- Embeddings and Vector Store Setup -------------------- #
+embeddings = download_embeddings()
+
+index_name = "legallaw-chatbot" 
+
+docsearch = PineconeVectorStore.from_existing_index(
+    index_name=index_name,
+    embedding=embeddings
+)
+retriever = docsearch.as_retriever(search_type="similarity", search_kwargs={"k":3})
