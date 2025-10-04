@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./authForm.css";
+import Google from "../../assets/google.png"
 
 function AuthForm({ isLogin }) {
   const [formData, setFormData] = useState({
@@ -64,7 +65,7 @@ function AuthForm({ isLogin }) {
 
       <button type="button" className="google-btn">
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+          src= {Google}
           alt="Google"
         />
         Login With Google
