@@ -1,6 +1,17 @@
 import { useState } from "react";
 import "./authForm.css";
 import Google from "../../assets/google.png"
+import { GoogleLogin } from "@react-oauth/google";
+
+<GoogleLogin
+  onSuccess={(credentialResponse) => {
+    console.log("Google login success:", credentialResponse);
+    // Have to send credentialResponse.credential to your backend for verification
+  }}
+  onError={() => {
+    alert("Google login failed"); 
+  }}
+/>
 
 function AuthForm({ isLogin }) {
   const [formData, setFormData] = useState({
@@ -18,7 +29,33 @@ function AuthForm({ isLogin }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(formData.email)) {
+        alert("Please enter a valid email");
+        return;
+      }
+
+      if (formData.password.length < 6) {
+        alert("Password must be at least 6 characters long");
+        return;
+      }
+      
+      if (!isLogin && formData.password !== formData.confirmPassword) {
+      alert("Passwords do not match!");
+      return;
+      }
+
+      console.log(formData);
+      // Call your API here
+  };
+
+  const handleForgotPassword = () => {
+      const email = prompt("Enter your email to reset password:");
+      if (email) {
+        // Call your backend API to send a password reset link
+        alert(`Password reset link sent to ${email}`);
+      }
   };
 
   return (
@@ -50,7 +87,7 @@ function AuthForm({ isLogin }) {
       )}
 
       {isLogin && (
-        <a href="#" className="forgot-link">
+        <a href="#" className="forgot-link" onClick={handleForgotPassword}>
           Forget Password
         </a>
       )}
