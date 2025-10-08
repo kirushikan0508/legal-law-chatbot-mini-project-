@@ -1,6 +1,7 @@
 import { useState } from "react";
 import AuthForm from "../../Components/AuthForm/AuthForm";
 import "./auth.css";
+import { FaBalanceScale } from "react-icons/fa";
 
 
 function Auth() {
@@ -9,7 +10,7 @@ function Auth() {
   return (
     <div className="auth-container">
       <header className="auth-header">
-        <h1>⚖️ Legal Assistant AI</h1>
+        <h1> <FaBalanceScale/>  Legal Assistant AI</h1>
         <p>Sri Lanka Law Guidance</p>
       </header>
 
