@@ -1,5 +1,7 @@
+import Navbar from "../../Components/Navbar/Navbar";
 import ChatInput from "../../Components/ChatInput/ChatInput";
 import "./home.css";
+import { FaBalanceScale } from "react-icons/fa";
 
 function Home() {
   const handleUserQuery = (query) => {
@@ -9,9 +11,12 @@ function Home() {
 
   return (
     <div className="home-container">
+
+       <Navbar /> {/* 👈 add this here */}
+       
       {/* Header */}
       <header className="home-header">
-        <h1>⚖️ Legal Assistant AI</h1>
+        <h1> <FaBalanceScale/> Legal Assistant AI</h1>
         <p>Sri Lanka Law Guidance</p>
       </header>
 
