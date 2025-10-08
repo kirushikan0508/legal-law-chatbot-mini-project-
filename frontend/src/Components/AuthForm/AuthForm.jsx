@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./authForm.css";
 import Google from "../../assets/google.png"
 import { GoogleLogin } from "@react-oauth/google";
+import { useNavigate } from "react-router-dom";
 
 <GoogleLogin
   onSuccess={(credentialResponse) => {
@@ -19,6 +20,8 @@ function AuthForm({ isLogin }) {
     password: "",
     confirmPassword: ""
   });
+
+  const navigate = useNavigate(); // 👈 hook for navigation
 
   const handleChange = (e) => {
     setFormData({
@@ -48,6 +51,9 @@ function AuthForm({ isLogin }) {
 
       console.log(formData);
       // Call your API here
+
+      // 👇 After successful login or sign up
+    navigate("/home"); // Redirect to main page
   };
 
   const handleForgotPassword = () => {
