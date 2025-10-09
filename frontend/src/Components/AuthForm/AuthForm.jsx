@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./authForm.css";
-import Google from "../../assets/google.png"
+import { useNavigate } from "react-router-dom"; // 👈 import useNavigate
+import GoogleLogo from "../../assets/google.png";
 
 function AuthForm({ isLogin }) {
   const [formData, setFormData] = useState({
@@ -8,6 +9,8 @@ function AuthForm({ isLogin }) {
     password: "",
     confirmPassword: ""
   });
+
+  const navigate = useNavigate(); // 👈 hook for navigation
 
   const handleChange = (e) => {
     setFormData({
@@ -18,7 +21,36 @@ function AuthForm({ isLogin }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(formData.email)) {
+        alert("Please enter a valid email");
+        return;
+      }
+
+      if (formData.password.length < 6) {
+        alert("Password must be at least 6 characters long");
+        return;
+      }
+      
+      if (!isLogin && formData.password !== formData.confirmPassword) {
+      alert("Passwords do not match!");
+      return;
+      }
+
+      console.log(formData);
+      // Call your API here
+
+      // 👇 After successful login or sign up
+    navigate("/home"); // Redirect to main page
+  };
+
+  const handleForgotPassword = () => {
+      const email = prompt("Enter your email to reset password:");
+      if (email) {
+        // Call your backend API to send a password reset link
+        alert(`Password reset link sent to ${email}`);
+      }
   };
 
   return (
@@ -50,7 +82,7 @@ function AuthForm({ isLogin }) {
       )}
 
       {isLogin && (
-        <a href="#" className="forgot-link">
+        <a href="#" className="forgot-link" onClick={handleForgotPassword}>
           Forget Password
         </a>
       )}
@@ -65,7 +97,7 @@ function AuthForm({ isLogin }) {
 
       <button type="button" className="google-btn">
         <img
-          src= {Google}
+          src= {GoogleLogo}
           alt="Google"
         />
         Login With Google
