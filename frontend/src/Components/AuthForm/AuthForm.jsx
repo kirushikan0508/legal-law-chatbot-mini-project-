@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./authForm.css";
 import { useNavigate } from "react-router-dom"; // 👈 import useNavigate
-import GoogleLogo from "../../assets/google.png";
+import { FcGoogle } from "react-icons/fc";
 
 function AuthForm({ isLogin }) {
   const [formData, setFormData] = useState({
@@ -96,10 +96,7 @@ function AuthForm({ isLogin }) {
       </div>
 
       <button type="button" className="google-btn">
-        <img
-          src= {GoogleLogo}
-          alt="Google"
-        />
+           <FcGoogle className="google-icon" />
         Login With Google
       </button>
     </form>
