@@ -46,3 +46,44 @@
   text-align: left;
   background-color: #fafafa;
 }
+
+/* Responsive Home Layout */
+@media (max-width: 1024px) {
+  .chat-section {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .chat-input {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .chat-input input {
+    width: 100%;
+  }
+
+  .chat-input button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .chat-section {
+    padding: 10px;
+  }
+
+  .chat-input {
+    flex-direction: column;
+  }
+
+  .chat-input input {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .chat-input button {
+    font-size: 14px;
+    padding: 10px;
+  }
+}

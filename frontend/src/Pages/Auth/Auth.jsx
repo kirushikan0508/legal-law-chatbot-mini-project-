@@ -1,11 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AuthForm from "../../Components/AuthForm/AuthForm";
 import "./auth.css";
 import { FaBalanceScale } from "react-icons/fa";
+import { useLocation } from "react-router-dom";
 
 
 function Auth() {
+  const location = useLocation();
   const [isLogin, setIsLogin] = useState(true);
+
+  // Detect query parameter to switch modes
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const mode = params.get("mode");
+    setIsLogin(mode !== "signup"); // if mode=signup → false
+  }, [location]);
+
 
   return (
     <div className="auth-container">
