@@ -32,6 +32,10 @@ const registerUser =async (req,res) =>{
             return res.json({success:false,message:"please enter strong password"})
         }
 
+        //hashing user password
+        const salt = await bcrypt.genSalt(10)
+        const hashedPassword = await bcrypt.hash(password,salt)
+
     }catch (error){
         console.log(error)
         res.json({success:false,message:"Error"})
