@@ -15,6 +15,17 @@ const createToken = (id) =>{
 
 //register user
 const registerUser =async (req,res) =>{
+    try{
+        //checking is user already exists
+        const exists = await userModel.findOne({email});
+        if (exists){
+            return res.json({success:false,message:"user already exist"})
+        }
+
+    }catch (error){
+        console.log(error)
+        res.json({success:false,message:"Error"})
+    }
 
 }
 export {loginUser,registerUser};
