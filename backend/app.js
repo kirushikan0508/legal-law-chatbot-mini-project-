@@ -1,6 +1,11 @@
 import express from "express" 
 import cors from 'cors'
+import dotenv from 'dotenv'
 import { connectDB } from "./config/db.js"
+import userRouter from "./routes/userRoute.js"
+
+// Load environment variables FIRST
+dotenv.config();
 
 //app config
 const app = express()
@@ -14,12 +19,12 @@ app.use(cors())
 connectDB();
 
 //api endpoints
+app.use("/api/user",userRouter)
 
 app.get("/",(req,res)=>{
-    console.log(`server started on http://localhost:${port}`)
+    res.send("Server is running successfully!");
 })
 
-
 app.listen(port,()=>{
-    console.log(`server started on http://localhost:${port}`)
+    console.log(`Server started on http://localhost:${port}`)
 })
