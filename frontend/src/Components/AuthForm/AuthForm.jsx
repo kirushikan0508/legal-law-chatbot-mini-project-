@@ -107,7 +107,7 @@ function AuthForm({ isLogin }) {
       </div>
 
       <button type="button" className="google-btn">
-        <FcGoogle />
+        <FcGoogle className="google-icon"/>
         Login With Google
       </button>
     </form>
