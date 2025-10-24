@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./authForm.css";
-import Google from "../../assets/google.png"
+import { FcGoogle } from 'react-icons/fc';
 import { GoogleLogin } from "@react-oauth/google";
 import { useNavigate } from "react-router-dom";
 
@@ -107,10 +107,7 @@ function AuthForm({ isLogin }) {
       </div>
 
       <button type="button" className="google-btn">
-        <img
-          src= {Google}
-          alt="Google"
-        />
+        <FcGoogle />
         Login With Google
       </button>
     </form>
