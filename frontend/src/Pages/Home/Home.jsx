@@ -3,6 +3,7 @@ import ChatInput from "../../Components/ChatInput/ChatInput";
 import "./home.css";
 import { FaBalanceScale, FaFileAlt, FaUser, FaCalendarAlt, FaDollarSign, FaBuilding, FaEdit, FaEye, FaDownload, FaPrint } from "react-icons/fa";
 import { useState } from "react";
+import ChatWindow from "../../Components/Chat/ChatWindow";
 
 function Home() {
   const [activeTab, setActiveTab] = useState('template');
@@ -70,8 +71,9 @@ function Home() {
 
       {/* Chat Section */}
       <section className="chat-section">
-        <ChatInput onSend={handleUserQuery} />
+         <ChatWindow />
       </section>
+
 
       {/* Document Generator Section */}
       <section className="document-generator">
