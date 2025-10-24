@@ -1,7 +1,18 @@
 import { useState } from "react";
 import "./authForm.css";
-import { useNavigate } from "react-router-dom"; // 👈 import useNavigate
-import { FcGoogle } from "react-icons/fc";
+import { FcGoogle } from 'react-icons/fc';
+import { GoogleLogin } from "@react-oauth/google";
+import { useNavigate } from "react-router-dom";
+
+<GoogleLogin
+  onSuccess={(credentialResponse) => {
+    console.log("Google login success:", credentialResponse);
+    // Have to send credentialResponse.credential to your backend for verification
+  }}
+  onError={() => {
+    alert("Google login failed"); 
+  }}
+/>
 
 function AuthForm({ isLogin }) {
   const [formData, setFormData] = useState({
@@ -96,7 +107,7 @@ function AuthForm({ isLogin }) {
       </div>
 
       <button type="button" className="google-btn">
-           <FcGoogle className="google-icon" />
+        <FcGoogle className="google-icon"/>
         Login With Google
       </button>
     </form>
