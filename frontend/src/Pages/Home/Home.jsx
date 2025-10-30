@@ -2,11 +2,22 @@ import Navbar from "../../Components/Navbar/Navbar";
 import "./home.css";
 import ChatWindow from "../../Components/Chat/ChatWindow";
 import DocumentGenerator from "../../Components/Document Generator/DocumentGenerator";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
+ 
+  const navigate = useNavigate();
 
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("loggedInUser");
+    if (!loggedInUser) {
+      alert("Please log in first!");
+      navigate("/");
+    }
+  }, [navigate]);
   
-  return (
+return (
     <div className="home-container">
 
        <Navbar /> 

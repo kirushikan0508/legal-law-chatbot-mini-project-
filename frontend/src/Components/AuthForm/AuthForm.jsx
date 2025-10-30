@@ -21,7 +21,7 @@ function AuthForm({ isLogin }) {
     confirmPassword: ""
   });
 
-  const navigate = useNavigate(); // 👈 hook for navigation
+  const navigate = useNavigate(); 
 
   const handleChange = (e) => {
     setFormData({
@@ -49,11 +49,49 @@ function AuthForm({ isLogin }) {
       return;
       }
 
+    // Fetch existing users from localStorage
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+
+      if (isLogin) {
+
+          // 🔐 LOGIN MODE
+          const user = users.find(
+            (u) => u.email === formData.email && u.password === formData.password
+          );
+
+          if (user) {
+                alert("✅ Login successful!");
+                localStorage.setItem("loggedInUser", JSON.stringify(user));
+                navigate("/home");
+          } else {
+                alert("❌ Invalid email or password!");
+        }
+
+      } else {
+        // 📝 SIGNUP MODE
+        const existingUser = users.find((u) =>
+               u.email === formData.email);
+        if (existingUser) {
+          alert("⚠️ Email already registered. Please log in instead.");
+          return;
+        }
+
+        const newUser = {
+          email: formData.email,
+          password: formData.password,
+        };
+
+        users.push(newUser);
+        localStorage.setItem("users", JSON.stringify(users));
+        alert("✅ Registration successful! Please log in.");
+        setFormData({ email: "", password: "", confirmPassword: "" });
+        window.location.reload(); // Refresh to show login form
+ }
+
       console.log(formData);
       // Call your API here
 
-      // 👇 After successful login or sign up
-    navigate("/home"); // Redirect to main page
+      
   };
 
   const handleForgotPassword = () => {

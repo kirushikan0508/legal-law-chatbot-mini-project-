@@ -6,6 +6,12 @@ import { MdAssignment } from "react-icons/md";
 
 
 function Navbar() {
+
+  const handleLogout = () => {
+    localStorage.removeItem("loggedInUser");
+    navigate("/");
+ };
+
   return (
     <nav className="navbar">
       {/* Left Section - Logo + Title */}
@@ -33,6 +39,9 @@ function Navbar() {
         </Link>
         <button className="nav-btn settings-btn" title="Settings">
           <FiSettings className="btn-icon"  />
+        </button>
+        <button onClick={handleLogout} className="logout-btn">
+          Logout
         </button>
       </div>
     </nav>
