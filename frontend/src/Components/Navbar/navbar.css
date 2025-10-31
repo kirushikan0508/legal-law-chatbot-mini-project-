@@ -75,10 +75,21 @@
   border: none;
 }
 
+.logout-btn {
+  background-color:#d85252;
+  border: none;
+  color: black;
+  font-weight: 700;
+}
+
 .signup-btn {
   background-color:#a9c8eb;
   border: none;
   color: black;
+}
+
+.logout-btn:hover {
+  background-color:#a9c8eb;
 }
 
 .login-btn:hover, .signup-btn:hover {
@@ -100,3 +111,4 @@
 .btn-icon {
   font-size: 18px;
 }
+
