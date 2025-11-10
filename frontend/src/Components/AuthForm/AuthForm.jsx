@@ -61,7 +61,7 @@ function AuthForm({ isLogin }) {
 
           if (user) {
                 alert("✅ Login successful!");
-                localStorage.setItem("loggedInUser", JSON.stringify(user));
+                localStorage.setItem("loggedInUser", JSON.stringify(user));  // store user info
                 navigate("/home");
           } else {
                 alert("❌ Invalid email or password!");

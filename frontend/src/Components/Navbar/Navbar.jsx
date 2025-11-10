@@ -7,8 +7,6 @@ import { MdAssignment } from "react-icons/md";
 
 function Navbar() {
 
-  
-
   return (
     <nav className="navbar">
       {/* Left Section - Logo + Title */}

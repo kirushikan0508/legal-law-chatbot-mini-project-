@@ -7,9 +7,18 @@ import { useNavigate } from "react-router-dom";
 
 export default function ChatWindow() {
 
+  const [messages, setMessages] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const scrollRef = useRef(null);
+  const navigate = useNavigate();
+
+  // ✅ Load logged-in user
+  const user = JSON.parse(localStorage.getItem("loggedInUser"));
+  const userKey = user ? `chatMessages_${user.email}` : "chatMessages_guest";
+
     // Load saved messages or default welcome
-const loadSavedMessages = () => {
-  const saved = localStorage.getItem("chatMessages");
+ const loadSavedMessages = () => {
+  const saved = localStorage.getItem(userKey);
   if (saved) return JSON.parse(saved);
 
   return [
@@ -18,23 +27,23 @@ const loadSavedMessages = () => {
       sender: "bot",
       text:"Welcome to Legal Assistant AI — ask your legal question and I'll provide guidance based on Sri Lankan law.",
       timestamp: new Date().toISOString(),
-      meta: null,
+      // meta: null,
     },
   ];
 };
 
-const [messages, setMessages] = useState(loadSavedMessages);
+// ✅ Initialize messages
+  useEffect(() => {
+    setMessages(loadSavedMessages());
+  }, [userKey]);
 
-const hasConversationStarted = messages.length > 1;
+  // ✅ Save messages whenever they change
+  useEffect(() => {
+    if (messages.length > 0) {
+      localStorage.setItem(userKey, JSON.stringify(messages));
+    }
+  }, [messages, userKey]);
 
-// Sync messages to storage when updated
-useEffect(() => {
-  localStorage.setItem("chatMessages", JSON.stringify(messages));
-}, [messages]);
-  
-  const [loading, setLoading] = useState(false);
-  const scrollRef = useRef(null);
-  const navigate = useNavigate();
 
   // Auto-scroll to bottom on messages change
   useEffect(() => {
@@ -43,11 +52,13 @@ useEffect(() => {
     }
   }, [messages, loading]);
 
+   // ✅ Append new message
+  const appendMessage = (msg) => setMessages((prev) => [...prev, msg]);
 
-  const appendMessage = (msg) => setMessages((m) => [...m, msg]);
-
-  // Called by ChatInput
+   // ✅ Handle user sending a message
   const handleSend = async (query) => {
+    if (!query.trim()) return;
+
     const userMsg = {
       id: `user-${Date.now()}`,
       sender: "user",
@@ -56,7 +67,7 @@ useEffect(() => {
     };
     appendMessage(userMsg);
 
-    // Add bot typing placeholder
+     // Add "typing" bubble
     const typingId = `bot-typing-${Date.now()}`;
     const typingMsg = {
       id: typingId,
@@ -68,28 +79,31 @@ useEffect(() => {
     appendMessage(typingMsg);
     setLoading(true);
 
-    try {
-      const res = await axios.post("/legal-query", { query }); // <-- your backend
-      const data = res.data || {};
+   try {
+      // 👇 Once backend is ready, this will send to your API
+      // const res = await axios.post("/legal-query", { query });
+      // const data = res.data || {};
 
-      // remove typing placeholder
-      setMessages((prev) => prev.filter((m) => m.id !== typingId));
-
-      // create bot message
-      const botMsg = {
-        id: `bot-${Date.now()}`,
-        sender: "bot",
-        text: data.answer || "Sorry — I couldn't find an answer.",
-        timestamp: new Date().toISOString(),
-        sources: data.sources || [],
-        templates: data.templates || [],
+      // Simulated bot reply for now
+      await new Promise((r) => setTimeout(r, 1200));
+      const data = {
+        answer: `You asked: "${query}". This is a simulated AI reply for now.`,
+        sources: [],
       };
 
-      appendMessage(botMsg);
-    } catch (err) {
-      // remove typing placeholder
+      // Remove typing placeholder
       setMessages((prev) => prev.filter((m) => m.id !== typingId));
 
+      // Append bot reply
+      appendMessage({
+        id: `bot-${Date.now()}`,
+        sender: "bot",
+        text: data.answer,
+        timestamp: new Date().toISOString(),
+        sources: data.sources,
+      });
+    } catch (err) {
+      setMessages((prev) => prev.filter((m) => m.id !== typingId));
       appendMessage({
         id: `bot-error-${Date.now()}`,
         sender: "bot",
@@ -104,13 +118,18 @@ useEffect(() => {
     }
   };
 
+  // ✅ Navigate to document page from bot message
   const handleTemplateClick = (template) => {
-    // navigate to document page and pass template id / title as state
     navigate("/document", { state: { template } });
   };
 
+  // ✅ Determine whether conversation started
+  const hasConversationStarted = messages.length > 1;
+
   return (
-    <div className={`chat-window ${hasConversationStarted ? "expanded" : "compact"}`}>
+    <div
+      className={`chat-window ${hasConversationStarted ? "expanded" : "compact"}`}
+    >
       <div className="chat-messages" ref={scrollRef}>
         {messages.map((m) => (
           <MessageBubble
@@ -133,3 +152,10 @@ useEffect(() => {
     </div>
   );
 }
+
+
+
+  
+ 
+  
+
