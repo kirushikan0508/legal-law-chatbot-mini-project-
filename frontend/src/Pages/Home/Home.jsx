@@ -1,9 +1,9 @@
 import Navbar from "../../Components/Navbar/Navbar";
 import "./home.css";
-import ChatWindow from "../../Components/Chat/ChatWindow";
 import DocumentGenerator from "../../Components/Document Generator/DocumentGenerator";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+
 
 function Home() {
   
@@ -25,6 +25,12 @@ function Home() {
  
   if (!user) return <div className="loading">Loading...</div>;
 
+  const handleClick = () => {
+    navigate("/chatting");
+  };
+
+  
+
 return (
     <div className="home-container">
 
@@ -38,11 +44,11 @@ return (
           )}
        </header>
 
-      {/* Chat Section */}
-      <section className="chat-section">
-         <ChatWindow />
-      </section>
-
+      {/* Chat section */}
+        <section className="chatting-section">
+              <button onClick={handleClick} >Start Chat here</button>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis alias ea ex inventore deleniti consectetur dolorum velit. Iusto quae, inventore non quam suscipit voluptatum sunt. Sed vel fugiat perferendis, eos velit delectus expedita obcaecati, voluptatum placeat similique temporibus iure vero enim voluptate recusandae. Eum quaerat vitae voluptatum! Dolorum, eaque mollitia!</p>
+        </section>
 
       {/* Document Generator Section */}
       <section className="document-generator">

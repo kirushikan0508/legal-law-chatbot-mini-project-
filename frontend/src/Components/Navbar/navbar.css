@@ -114,6 +114,12 @@
   font-size: 18px;
 }
 
+.menu-toggle{
+  background: none;
+  border: none;
+  
+}
+
 /* For tablets and smaller (<= 1024px) */
 @media (max-width: 1024px) {
   .navbar {
