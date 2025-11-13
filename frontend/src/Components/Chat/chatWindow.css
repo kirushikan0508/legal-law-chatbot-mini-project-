@@ -1,0 +1,61 @@
+.chat-window {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  transition: all 0.3s ease;
+  margin: 1rem auto;
+  width: 100%;
+  max-width: 900px;
+  height: 70vh; 
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* Initial compact mode*/
+.chat-window.compact {
+  width: 100%;
+  max-width: 600px;
+  margin: 80px auto 0;
+  height: auto;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Messages area visible only a little at first */
+.chat-window.compact .chat-messages {
+  max-height: 200px;
+  overflow-y: hidden;
+}
+
+/* After first message → expand full chat mode like ChatGPT */
+.chat-window.expanded {
+  width: 100%;
+  height: calc(100vh - 100px);
+  margin: 0;
+  display: grid;
+  grid-template-rows: 1fr auto;
+ 
+}
+
+/* Normal scroll when expanded */
+.chat-window.expanded .chat-messages {
+  overflow-y: auto;
+}
+
+.chat-messages {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 18px;
+  border-radius: 12px;
+  height: 60vh;
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* Container for input at bottom */
+.chat-input-area {
+  width: 100%;
+  display: flex;
+  justify-content: center; 
+}

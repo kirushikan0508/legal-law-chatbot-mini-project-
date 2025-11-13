@@ -2,88 +2,42 @@
   text-align: center;
   font-family: "Segoe UI", Arial, sans-serif;
   color: #333;
+  background: #fafafa; min-height: 100vh; 
 }
 
-.home-header {
-  background-color: #8eb8e5;
-  padding: 15px 0;
-}
-
-.home-header h1 {
-  margin: 0;
-  font-size: 22px;
-  font-weight: bold;
-}
-
-.home-header p {
-  font-size: 13px;
-  font-style: italic;
-  margin-top: 5px;
-}
-
-.disclaimer {
-  background-color: #f5e1b3;
-  margin: 20px auto;
+.chatting-section {
+  margin: 24px auto;
+  padding: 18px;
   width: 90%;
-  max-width: 700px;
-  padding: 10px 15px;
-  border-radius: 8px;
-  font-size: 13px;
-  text-align: left;
+  max-width: 1100px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  text-align: center;
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", Arial, sans-serif;
 }
 
-.chat-section {
-  margin: 25px auto;
+.chatting-section button{
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 20px 25px;
+  border-radius: 4px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.document-generator {
-  margin: 40px auto;
-  padding: 20px;
-  width: 90%;
-  max-width: 700px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  text-align: left;
-  background-color: #fafafa;
+.chatting-section p{
+  color: #ada9a9;
+  text-align: justify;
 }
 
-/* Responsive Home Layout */
-@media (max-width: 1024px) {
-  .chat-section {
-    width: 90%;
-    margin: 0 auto;
-  }
-
-  .chat-input {
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .chat-input input {
-    width: 100%;
-  }
-
-  .chat-input button {
-    width: 100%;
-  }
+.welcome-text {
+  font-size: 2.0rem;
+  color: #1d38a0;
+  margin: 20px 0;
+  font-weight: 500; 
 }
 
-@media (max-width: 600px) {
-  .chat-section {
-    padding: 10px;
-  }
-
-  .chat-input {
-    flex-direction: column;
-  }
-
-  .chat-input input {
-    font-size: 14px;
-    padding: 10px;
-  }
-
-  .chat-input button {
-    font-size: 14px;
-    padding: 10px;
-  }
-}

@@ -1,44 +1,61 @@
 import Navbar from "../../Components/Navbar/Navbar";
-import ChatInput from "../../Components/ChatInput/ChatInput";
 import "./home.css";
-import { FaBalanceScale } from "react-icons/fa";
+import DocumentGenerator from "../../Components/Document Generator/DocumentGenerator";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 function Home() {
-  const handleUserQuery = (query) => {
-    console.log("User question:", query);
-    // later connect this with your chatbot backend
+  
+  const [user, setUser] = useState(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+    if (!loggedInUser) {
+      alert("Please log in first!");
+      navigate("/");
+    } else {
+      setUser(loggedInUser);
+    }
+  }, [navigate]);
+
+  // ✅ Compute name only after user is loaded
+  const name = user ? user.email.split("@")[0] : "";
+ 
+  if (!user) return <div className="loading">Loading...</div>;
+
+  const handleClick = () => {
+    navigate("/chatting");
   };
 
-  return (
+  
+
+return (
     <div className="home-container">
 
-       <Navbar /> {/* 👈 add this here */}
-       
-      {/* Header */}
-      <header className="home-header">
-        <h1> <FaBalanceScale/> Legal Assistant AI</h1>
-        <p>Sri Lanka Law Guidance</p>
-      </header>
+       <Navbar /> 
 
-      {/* Disclaimer */}
-      <section className="disclaimer">
-        <p>
-          <strong>Legal Disclaimer:</strong> This AI provides general legal
-          information only. For specific legal advice, consult a qualified Sri
-          Lankan attorney.
-        </p>
-      </section>
+       <header>
+          {user && (
+            <p className="welcome-text">
+              Welcome, <strong>{name}</strong> 
+            </p>
+          )}
+       </header>
 
-      {/* Chat Section */}
-      <section className="chat-section">
-        <ChatInput onSend={handleUserQuery} />
-      </section>
+      {/* Chat section */}
+        <section className="chatting-section">
+              <button onClick={handleClick} >Start Chat here</button>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis alias ea ex inventore deleniti consectetur dolorum velit. Iusto quae, inventore non quam suscipit voluptatum sunt. Sed vel fugiat perferendis, eos velit delectus expedita obcaecati, voluptatum placeat similique temporibus iure vero enim voluptate recusandae. Eum quaerat vitae voluptatum! Dolorum, eaque mollitia!</p>
+        </section>
 
-      {/* Document Generator placeholder (we’ll build next) */}
+      {/* Document Generator Section */}
       <section className="document-generator">
-        <h2>📄 Legal Document Generator</h2>
-        <p>Coming soon...</p>
+          <DocumentGenerator />
       </section>
+
+
     </div>
   );
 }
