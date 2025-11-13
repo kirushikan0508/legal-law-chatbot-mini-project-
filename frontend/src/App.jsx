@@ -11,12 +11,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Auth />} />
         <Route path="/home" element={<Home />} />  
-        <Route path="/chatting" element={<Chatting/>} />
+        <Route path="/chatting" element={<Chatting />} />
       </Routes>
     </BrowserRouter>
   );
 }
+
 export default App;
-
-
-

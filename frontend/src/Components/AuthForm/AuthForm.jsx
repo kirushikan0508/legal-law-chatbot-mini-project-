@@ -1,27 +1,19 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import "./authForm.css";
-import { FcGoogle } from 'react-icons/fc';
-import { GoogleLogin } from "@react-oauth/google";
 import { useNavigate } from "react-router-dom";
-
-<GoogleLogin
-  onSuccess={(credentialResponse) => {
-    console.log("Google login success:", credentialResponse);
-    // Have to send credentialResponse.credential to your backend for verification
-  }}
-  onError={() => {
-    alert("Google login failed"); 
-  }}
-/>
+import { FcGoogle } from "react-icons/fc";
+import { StoreContext } from "../../context/StoreContext.jsx";
 
 function AuthForm({ isLogin }) {
   const [formData, setFormData] = useState({
+    name: "",
     email: "",
     password: "",
     confirmPassword: ""
   });
 
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
+  const { loginUser, registerUser, loading } = useContext(StoreContext);
 
   const handleChange = (e) => {
     setFormData({
@@ -30,84 +22,87 @@ function AuthForm({ isLogin }) {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("Form submitted", { isLogin, formData });
 
+    // ---- Basic Validation ----
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(formData.email)) {
-        alert("Please enter a valid email");
-        return;
-      }
+    if (!emailRegex.test(formData.email)) {
+      alert("Please enter a valid email");
+      return;
+    }
 
-      if (formData.password.length < 6) {
-        alert("Password must be at least 6 characters long");
-        return;
-      }
-      
-      if (!isLogin && formData.password !== formData.confirmPassword) {
+    if (formData.password.length < 8) {
+      alert("Password must be at least 8 characters long");
+      return;
+    }
+
+    if (!isLogin && formData.password !== formData.confirmPassword) {
       alert("Passwords do not match!");
       return;
-      }
+    }
 
-    // Fetch existing users from localStorage
-    const users = JSON.parse(localStorage.getItem("users")) || [];
-
+    try {
       if (isLogin) {
-
-          // 🔐 LOGIN MODE
-          const user = users.find(
-            (u) => u.email === formData.email && u.password === formData.password
-          );
-
-          if (user) {
-                alert("✅ Login successful!");
-                localStorage.setItem("loggedInUser", JSON.stringify(user));  // store user info
-                navigate("/home");
-          } else {
-                alert("❌ Invalid email or password!");
+        console.log("Attempting login...");
+        const res = await loginUser(formData.email, formData.password);
+        console.log("Login response:", res);
+        
+        if (res.success) {
+          alert("Login successful!");
+          navigate("/home");
+        } else {
+          alert(res.message || "Login failed!");
         }
-
       } else {
-        // 📝 SIGNUP MODE
-        const existingUser = users.find((u) =>
-               u.email === formData.email);
-        if (existingUser) {
-          alert("⚠️ Email already registered. Please log in instead.");
-          return;
+        console.log("Attempting registration...");
+        const res = await registerUser(
+          formData.name,
+          formData.email,
+          formData.password
+        );
+        console.log("Register response:", res);
+        
+        if (res.success) {
+          alert("Registration successful!");
+          navigate("/home");
+        } else {
+          alert(res.message || "Registration failed!");
         }
-
-        const newUser = {
-          email: formData.email,
-          password: formData.password,
-        };
-
-        users.push(newUser);
-        localStorage.setItem("users", JSON.stringify(users));
-        alert("✅ Registration successful! Please log in.");
-        setFormData({ email: "", password: "", confirmPassword: "" });
-        window.location.reload(); // Refresh to show login form
- }
-
-      console.log(formData);
-      // Call your API here
-
-      
+      }
+    } catch (err) {
+      console.error("Full error:", err);
+      alert(err.response?.data?.message || "Something went wrong!");
+    }
   };
 
   const handleForgotPassword = () => {
-      const email = prompt("Enter your email to reset password:");
-      if (email) {
-        // Call your backend API to send a password reset link
-        alert(`Password reset link sent to ${email}`);
-      }
+    const email = prompt("Enter your email to reset password:");
+    if (email) {
+      alert(`Password reset link sent to ${email} (Feature coming soon)`);
+    }
   };
 
   return (
     <form className="form" onSubmit={handleSubmit}>
+      {/* Only show name input when signing up */}
+      {!isLogin && (
+        <input
+          type="text"
+          name="name"
+          placeholder="Full Name"
+          value={formData.name}
+          onChange={handleChange}
+          required
+        />
+      )}
+
       <input
         type="email"
         name="email"
         placeholder="Email"
+        value={formData.email}
         onChange={handleChange}
         required
       />
@@ -116,6 +111,7 @@ function AuthForm({ isLogin }) {
         type="password"
         name="password"
         placeholder="Password"
+        value={formData.password}
         onChange={handleChange}
         required
       />
@@ -125,6 +121,7 @@ function AuthForm({ isLogin }) {
           type="password"
           name="confirmPassword"
           placeholder="Re-Enter Password"
+          value={formData.confirmPassword}
           onChange={handleChange}
           required
         />
@@ -132,20 +129,24 @@ function AuthForm({ isLogin }) {
 
       {isLogin && (
         <a href="#" className="forgot-link" onClick={handleForgotPassword}>
-          Forget Password
+          Forget Password?
         </a>
       )}
 
-      <button type="submit" className="submit-btn">
-        {isLogin ? "Log In" : "Sign Up"}
+      <button 
+        className="submit-btn" 
+        type="submit"
+        disabled={loading}
+      >
+        {loading ? "Processing..." : (isLogin ? "Log In" : "Sign Up")}
       </button>
 
       <div className="divider">
         <span>OR</span>
       </div>
 
-      <button type="button" className="google-btn">
-        <FcGoogle className="google-icon"/>
+      <button type="button" className="google-btn" disabled={loading}>
+        <FcGoogle className="google-icon" />
         Login With Google
       </button>
     </form>
