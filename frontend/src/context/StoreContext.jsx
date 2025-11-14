@@ -24,6 +24,7 @@ const StoreContextProvider = (props) => {
         setToken(data.token);
         setUser(data.user);
         localStorage.setItem("token", data.token);
+        localStorage.setItem("loggedInUser", JSON.stringify(data.user));
       }
 
       return data;
@@ -52,6 +53,7 @@ const StoreContextProvider = (props) => {
         setToken(data.token);
         setUser(data.user);
         localStorage.setItem("token", data.token);
+        localStorage.setItem("loggedInUser", JSON.stringify(data.user));
       }
 
       return data;
@@ -66,19 +68,57 @@ const StoreContextProvider = (props) => {
     }
   };
 
+  // --- Chat with AI ---
+  const sendChatMessage = async (message) => {
+    if (!token) {
+      return { 
+        success: false, 
+        message: "Please login to chat with AI" 
+      };
+    }
+
+    setLoading(true);
+    try {
+      const response = await axios.post(
+        `${url}/api/chat/chat`,
+        { message },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            'token': token
+          }
+        }
+      );
+      return response.data;
+    } catch (error) {
+      console.error("Chat failed:", error.response?.data || error.message);
+      return error.response?.data || { 
+        success: false, 
+        message: "Failed to connect to AI service" 
+      };
+    } finally {
+      setLoading(false);
+    }
+  };
+
   // --- Logout User ---
   const logoutUser = () => {
     setToken("");
     setUser(null);
     localStorage.removeItem("token");
+    localStorage.removeItem("loggedInUser");
   };
 
   // --- Load user session from localStorage on refresh ---
   useEffect(() => {
     const savedToken = localStorage.getItem("token");
+    const savedUser = localStorage.getItem("loggedInUser");
+    
     if (savedToken) {
       setToken(savedToken);
-      // Optionally fetch user info using the token
+    }
+    if (savedUser) {
+      setUser(JSON.parse(savedUser));
     }
   }, []);
 
@@ -91,6 +131,7 @@ const StoreContextProvider = (props) => {
     registerUser,
     loginUser,
     logoutUser,
+    sendChatMessage, // ADD THIS
   };
 
   return (
