@@ -38,7 +38,7 @@ function Navbar() {
       {/* Right Section - Navigation Links */}
       <div className={`navbar-right ${menuOpen ? "show" : ""}`}>
 
-        <Link to="/templates" className="nav-btn templates-btn">
+        <Link to="/document" className="nav-btn templates-btn">
           <MdAssignment className="btn-icon" /> Templates
         </Link>
       
@@ -46,7 +46,7 @@ function Navbar() {
           Log in
         </Link>
 
-        <Link to="/signup" className="nav-btn signup-btn">
+        <Link to="/" className="nav-btn signup-btn">
           Sign up
         </Link>
 
