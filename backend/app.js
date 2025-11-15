@@ -4,7 +4,7 @@ import dotenv from 'dotenv'
 import { connectDB } from "./config/db.js"
 import userRouter from "./routes/userRoute.js"
 import chatRouter from "./routes/chatRoute.js"
-
+import historyRouter from "./routes/historyRoute.js"
 // Load environment variables FIRST
 dotenv.config();
 
@@ -22,6 +22,7 @@ connectDB();
 //api endpoints
 app.use("/api/user",userRouter)
 app.use("/api/chat", chatRouter)
+app.use("/api/history", historyRouter)
 
 app.get("/",(req,res)=>{
     res.send("Server is running successfully!");
