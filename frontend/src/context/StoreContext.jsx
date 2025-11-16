@@ -69,7 +69,7 @@ const StoreContextProvider = (props) => {
   };
 
   // --- Chat with AI ---
-  const sendChatMessage = async (message) => {
+  const sendChatMessage = async (message, sessionId = null) => {
     if (!token) {
       return { 
         success: false, 
@@ -81,7 +81,7 @@ const StoreContextProvider = (props) => {
     try {
       const response = await axios.post(
         `${url}/api/chat/chat`,
-        { message },
+        { message, sessionId },
         {
           headers: {
             'Content-Type': 'application/json',
@@ -98,6 +98,123 @@ const StoreContextProvider = (props) => {
       };
     } finally {
       setLoading(false);
+    }
+  };
+
+  // --- CHAT HISTORY FUNCTIONS ---
+
+  // Save chat message to history
+  const saveChatHistory = async (sessionId, userMessage, aiResponse, title = null) => {
+    if (!token) return { success: false, message: "Please login to save chat history" };
+
+    try {
+      const response = await axios.post(
+        `${url}/api/history/save`,
+        {
+          sessionId,
+          message: userMessage,
+          response: aiResponse,
+          title
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            'token': token
+          }
+        }
+      );
+      return response.data;
+    } catch (error) {
+      console.error("Save history failed:", error.response?.data || error.message);
+      return error.response?.data || { 
+        success: false, 
+        message: "Failed to save chat history" 
+      };
+    }
+  };
+
+  // Get user's chat sessions
+  const getChatSessions = async () => {
+    if (!token) return { success: false, message: "Please login to get chat history" };
+
+    try {
+      const response = await axios.get(`${url}/api/history/sessions`, {
+        headers: {
+          'token': token
+        }
+      });
+      return response.data;
+    } catch (error) {
+      console.error("Get sessions failed:", error.response?.data || error.message);
+      return error.response?.data || { 
+        success: false, 
+        message: "Failed to load chat sessions" 
+      };
+    }
+  };
+
+  // Get specific chat session with messages
+  const getChatSession = async (sessionId) => {
+    if (!token) return { success: false, message: "Please login to get chat session" };
+
+    try {
+      const response = await axios.get(`${url}/api/history/session/${sessionId}`, {
+        headers: {
+          'token': token
+        }
+      });
+      return response.data;
+    } catch (error) {
+      console.error("Get session failed:", error.response?.data || error.message);
+      return error.response?.data || { 
+        success: false, 
+        message: "Failed to load chat session" 
+      };
+    }
+  };
+
+  // Update session title
+  const updateSessionTitle = async (sessionId, title) => {
+    if (!token) return { success: false, message: "Please login to update title" };
+
+    try {
+      const response = await axios.put(
+        `${url}/api/history/session/${sessionId}/title`,
+        { title },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            'token': token
+          }
+        }
+      );
+      return response.data;
+    } catch (error) {
+      console.error("Update title failed:", error.response?.data || error.message);
+      return error.response?.data || { 
+        success: false, 
+        message: "Failed to update title" 
+      };
+    }
+  };
+
+  // Delete chat session
+  const deleteChatSession = async (sessionId) => {
+    if (!token) return { success: false, message: "Please login to delete chat" };
+
+    try {
+      const response = await axios.delete(`${url}/api/history/session/${sessionId}`, {
+        headers: {
+          'token': token
+        }
+      });
+      return response.data;
+    } catch (error) {
+      console.error("Delete session failed:", error.response?.data || error.message);
+      return error.response?.data || { 
+        success: false, 
+        message: "Failed to delete chat session" 
+      };
     }
   };
 
@@ -131,7 +248,13 @@ const StoreContextProvider = (props) => {
     registerUser,
     loginUser,
     logoutUser,
-    sendChatMessage, // ADD THIS
+    sendChatMessage,
+    // Chat History Functions
+    saveChatHistory,
+    getChatSessions,
+    getChatSession,
+    updateSessionTitle,
+    deleteChatSession,
   };
 
   return (
