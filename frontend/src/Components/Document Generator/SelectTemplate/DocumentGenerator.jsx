@@ -1,9 +1,5 @@
 import {
   FaFileAlt,
-  FaUser,
-  FaCalendarAlt,
-  FaDollarSign,
-  FaBuilding,
   FaEdit,
   FaEye,
   FaDownload,
@@ -13,6 +9,8 @@ import {
 } from "react-icons/fa";
 import "./documentGenerator.css";
 import { useState } from "react";
+import CustomizeSection from "../CustomizeSection/CustomizeSection";
+import PreviewDocuments from "../DocumentPreview/PreviewDocuments";
 
 const TEMPLATES_DATA = [
   {
@@ -629,227 +627,22 @@ function DocumentGenerator() {
 
       {/* Customize Tab */}
       {activeTab === "customize" && (
-        <div className="customize-section">
-          <h3>Customize Your Document</h3>
-          <form onSubmit={handleSubmit} className="customize-form">
-            <div className="form-row">
-              <div className="form-group">
-                <label htmlFor="employerName">
-                  <FaBuilding /> Employer Name
-                </label>
-                <input
-                  type="text"
-                  id="employerName"
-                  name="employerName"
-                  value={formData.employerName}
-                  onChange={handleInputChange}
-                  placeholder="Enter employer name"
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="employeeName">
-                  <FaUser /> Employee Name
-                </label>
-                <input
-                  type="text"
-                  id="employeeName"
-                  name="employeeName"
-                  value={formData.employeeName}
-                  onChange={handleInputChange}
-                  placeholder="Enter employee name"
-                  required
-                />
-              </div>
-            </div>
-
-            <div className="form-row">
-              <div className="form-group">
-                <label htmlFor="terminationDate">
-                  <FaCalendarAlt /> Termination Date
-                </label>
-                <input
-                  type="date"
-                  id="terminationDate"
-                  name="terminationDate"
-                  value={formData.terminationDate}
-                  onChange={handleInputChange}
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="noticePeriod">
-                  <FaCalendarAlt /> Notice Period
-                </label>
-                <input
-                  type="text"
-                  id="noticePeriod"
-                  name="noticePeriod"
-                  value={formData.noticePeriod}
-                  onChange={handleInputChange}
-                  placeholder="e.g., 30 days"
-                  required
-                />
-              </div>
-            </div>
-
-            <div className="form-row">
-              <div className="form-group">
-                <label htmlFor="severanceAmount">
-                  <FaDollarSign /> Severance Amount
-                </label>
-                <input
-                  type="number"
-                  id="severanceAmount"
-                  name="severanceAmount"
-                  value={formData.severanceAmount}
-                  onChange={handleInputChange}
-                  placeholder="Enter amount"
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="date">
-                  <FaCalendarAlt /> Date
-                </label>
-                <input
-                  type="date"
-                  id="date"
-                  name="date"
-                  value={formData.date}
-                  onChange={handleInputChange}
-                  required
-                />
-              </div>
-            </div>
-
-            <div className="form-actions">
-              <button type="submit" className="generate-btn">
-                <FaFileAlt /> Generate Document
-              </button>
-              <button
-                type="button"
-                className="preview-btn"
-                onClick={handlePreview}
-              >
-                <FaEye /> Preview Document
-              </button>
-            </div>
-          </form>
-        </div>
+        <CustomizeSection
+          formData={formData}
+          onInputChange={handleInputChange}
+          onSubmit={handleSubmit}
+          onPreview={handlePreview}
+        />
       )}
 
       {/* Preview Documents Tab */}
       {activeTab === "preview" && (
-        <div className="preview-section">
-          <h3>Document Preview</h3>
-          <div className="preview-container">
-            <div className="preview-toolbar">
-              <button className="toolbar-btn" onClick={handleDownload}>
-                <FaDownload /> Download
-              </button>
-              <button className="toolbar-btn" onClick={handlePrint}>
-                <FaPrint /> Print
-              </button>
-              <button
-                className="toolbar-btn"
-                onClick={() => setShowPreview(false)}
-              >
-                Close Preview
-              </button>
-            </div>
-
-            <div className="document-preview">
-              <div className="document-header">
-                <h2>EMPLOYMENT TERMINATION NOTICE</h2>
-                <div className="document-meta">
-                  <p>
-                    <strong>Date:</strong>{" "}
-                    {formData.date || new Date().toLocaleDateString()}
-                  </p>
-                  <p>
-                    <strong>Document ID:</strong> ETN-
-                    {Date.now().toString().slice(-6)}
-                  </p>
-                </div>
-              </div>
-
-              <div className="document-body">
-                <div className="document-section">
-                  <h3>To:</h3>
-                  <p>
-                    <strong>Employee Name:</strong>{" "}
-                    {formData.employeeName || "[Employee Name]"}
-                  </p>
-                  <p>
-                    <strong>Address:</strong> [Employee Address]
-                  </p>
-                </div>
-
-                <div className="document-section">
-                  <h3>From:</h3>
-                  <p>
-                    <strong>Employer:</strong>{" "}
-                    {formData.employerName || "[Employer Name]"}
-                  </p>
-                  <p>
-                    <strong>Address:</strong> [Employer Address]
-                  </p>
-                </div>
-
-                <div className="document-section">
-                  <h3>Subject: Notice of Employment Termination</h3>
-                  <p>Dear {formData.employeeName || "[Employee Name]"},</p>
-
-                  <p>
-                    This letter serves as formal notice of the termination of
-                    your employment with{" "}
-                    {formData.employerName || "[Employer Name]"}, effective{" "}
-                    {formData.terminationDate || "[Termination Date]"}.
-                  </p>
-
-                  <p>
-                    As per your employment agreement, you are entitled to a
-                    notice period of{" "}
-                    {formData.noticePeriod || "[Notice Period]"}. During this
-                    period, you will continue to receive your regular salary and
-                    benefits.
-                  </p>
-
-                  <p>
-                    Additionally, you will receive a severance payment of $
-                    {formData.severanceAmount || "[Severance Amount]"} as
-                    outlined in your employment contract.
-                  </p>
-
-                  <p>
-                    Please ensure that all company property is returned by your
-                    last working day. Your final paycheck will be processed
-                    according to company policy.
-                  </p>
-
-                  <p>
-                    We thank you for your service and wish you the best in your
-                    future endeavors.
-                  </p>
-                </div>
-
-                <div className="document-signature">
-                  <div className="signature-line">
-                    <p>_________________________</p>
-                    <p>
-                      <strong>Authorized Signature</strong>
-                    </p>
-                    <p>{formData.employerName || "[Employer Name]"}</p>
-                    <p>
-                      Date: {formData.date || new Date().toLocaleDateString()}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <PreviewDocuments
+          formData={formData}
+          onDownload={handleDownload}
+          onPrint={handlePrint}
+          onClose={() => setShowPreview(false)}
+        />
       )}
     </section>
   );
