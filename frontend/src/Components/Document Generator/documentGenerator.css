@@ -390,7 +390,7 @@
 .modal-close-btn {
   position: absolute;
   top: 35px;
-  right: 20px;
+  right: 35px;
   background: #2c3e50;
   color: white;
   border: none;
@@ -409,6 +409,7 @@
 .modal-close-btn:hover {
   background: #3498db;
   transform: scale(1.1);
+  color: #2c3e50;
 }
 
 .modal-header {
