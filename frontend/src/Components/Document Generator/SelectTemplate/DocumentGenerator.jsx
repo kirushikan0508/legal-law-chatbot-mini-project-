@@ -395,7 +395,6 @@ const TEMPLATES_DATA = [
 
 function DocumentGenerator() {
   const [activeTab, setActiveTab] = useState("template");
-  const [showPreview, setShowPreview] = useState(false);
   const [selectedTemplate, setSelectedTemplate] = useState(null);
   const [imageError, setImageError] = useState(false);
   const [formData, setFormData] = useState({
@@ -422,7 +421,7 @@ function DocumentGenerator() {
   };
 
   const handlePreview = () => {
-    setShowPreview(true);
+    setActiveTab("preview");
   };
 
   const handleDownload = () => {
@@ -641,7 +640,7 @@ function DocumentGenerator() {
           formData={formData}
           onDownload={handleDownload}
           onPrint={handlePrint}
-          onClose={() => setShowPreview(false)}
+          onClose={() => setActiveTab("customize")}
         />
       )}
     </section>

@@ -1,4 +1,4 @@
-import DocumentGenerator from "../../Components/Document Generator/DocumentGenerator";
+import DocumentGenerator from "../../Components/Document Generator/SelectTemplate/DocumentGenerator";
 import "./document.css";
 
 function Document(){
