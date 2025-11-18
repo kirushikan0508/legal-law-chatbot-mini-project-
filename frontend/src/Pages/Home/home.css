@@ -1,8 +1,25 @@
 .welcome-text {
-  font-size: 2.0rem;
-  color: #083494;
-  margin: 20px 0;
-  font-weight: 500; 
+  font-size: 32px;
+  font-weight: 500;
+  color: #1b2a52;
+  text-align: center;
+  margin-top: 30px;
+  position: relative; 
+}
+
+.welcome-text span {
+  font-weight: 700;
+  color: #1c3faa;
+}
+
+.welcome-text::after {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 4px;
+  background: linear-gradient(90deg, #a9c8eb, #1c3faa);
+  margin: 10px auto 0;
+  border-radius: 2px;
 }
 
  /* --- Base Page --- */
