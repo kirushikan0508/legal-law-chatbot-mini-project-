@@ -1,3 +1,17 @@
+.logo-title-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;  /* remove underline */
+  color: inherit;         /* keep original text color */
+}
+
+.logo-title-link:hover {
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -72,11 +86,6 @@
   font-weight: 700;
 }
 
-.login-btn {
-  background-color: #a9c8eb;
-  border: none;
-}
-
 .logout-btn {
   background-color:#d85252;
   border: none;
@@ -84,40 +93,17 @@
   font-weight: 700;
 }
 
-.signup-btn {
-  background-color:#a9c8eb;
-  border: none;
-  color: black;
-}
-
 .logout-btn:hover {
   background-color:#a9c8eb;
-}
-
-.login-btn:hover, .signup-btn:hover {
-  background-color: #4f8bff;
-  color: white;
-}
-
-.settings-btn {
-  font-size: 18px;
-  padding: 8px 10px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.settings-btn:hover {
-  background-color: #e6eef9;
 }
 
 .btn-icon {
   font-size: 18px;
 }
 
-.menu-toggle{
-  background: none;
-  border: none;
-  
+/* Hide hamburger icon on large screens (desktop) */
+.menu-toggle {
+  display: none;
 }
 
 /* For tablets and smaller (<= 1024px) */
@@ -134,8 +120,6 @@
     font-size: 13px;
     padding: 7px 10px;
   }
-
-
 }
 
 /* For mobile (<= 768px) */
@@ -152,7 +136,7 @@
   }
 
   .navbar-right {
-    display: none; /* hidden by default on mobile */
+    display: none; /* hidden by default */
     flex-direction: column;
     width: 100%;
     margin-top: 10px;
@@ -169,7 +153,7 @@
     border-radius: 10px;
   }
 
-  /* Hamburger icon */
+  /* Show hamburger icon only on mobile */
   .menu-toggle {
     display: block;
     font-size: 22px;
@@ -193,4 +177,3 @@
     font-size: 18px;
   }
 }
-
