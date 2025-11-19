@@ -202,6 +202,7 @@ const TEMPLATES_DATA = [
         title: "Be Comprehensive",
         content: "Ensure that the template covers all potential areas including payment terms, duration, confidentiality, and termination clauses. Tailor it to include specifics relevant to your business scenario.",
       },
+
       {
         title: "Include payment terms",
         content: "Include payment terms, delivery schedules, and performance metrics.",
@@ -648,3 +649,4 @@ function DocumentGenerator() {
 }
 
 export default DocumentGenerator;
+
