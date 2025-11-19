@@ -12,6 +12,7 @@ import { useState } from "react";
 import CustomizeSection from "../CustomizeSection/CustomizeSection";
 import PreviewDocuments from "../DocumentPreview/PreviewDocuments";
 
+// Templates Data
 const TEMPLATES_DATA = [
   {
     id: 1,
@@ -394,6 +395,7 @@ const TEMPLATES_DATA = [
   },
 ];
 
+// Document Generator Component
 function DocumentGenerator() {
   const [activeTab, setActiveTab] = useState("template");
   const [selectedTemplate, setSelectedTemplate] = useState(null);
