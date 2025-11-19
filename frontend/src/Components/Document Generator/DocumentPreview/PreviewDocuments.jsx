@@ -78,12 +78,12 @@ function PreviewDocuments({ formData = {}, onDownload, onPrint, onClose }) {
       <h3>Document Preview</h3>
       <div className="preview-container">
         <div className="preview-toolbar">
-          <button className="toolbar-btn" onClick={onDownload}>
+          {/*<button className="toolbar-btn" onClick={onDownload}>
             <FaDownload /> Download
           </button>
           <button className="toolbar-btn" onClick={onPrint}>
             <FaPrint /> Print
-          </button>
+          </button>*/}
           <button className="toolbar-btn" onClick={onClose}>
             Close Preview
           </button>
@@ -119,7 +119,8 @@ function PreviewDocuments({ formData = {}, onDownload, onPrint, onClose }) {
               <p>
                 This agreement is made between <strong>{partyOne}</strong> and{" "}
                 <strong>{partyTwo}</strong>. Both parties acknowledge their
-                intent to enter into a legally binding arrangement as of (date).
+                intent to enter into a legally binding arrangement as of{" "}
+                {effectiveDate}.
               </p>
             </div>
 
@@ -169,7 +170,7 @@ function PreviewDocuments({ formData = {}, onDownload, onPrint, onClose }) {
 
             <div className="document-signature">
               <div className="signature-line">
-                <p>_________________________</p>
+                <p>________________________</p>
                 <p>
                   <strong>Authorized Representative</strong>
                 </p>
