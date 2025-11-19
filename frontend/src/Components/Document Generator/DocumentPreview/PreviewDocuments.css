@@ -70,6 +70,14 @@
   color: #2c3e50;
 }
 
+.document-subheading {
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #7f8c8d;
+  margin-bottom: 5px;
+}
+
 .document-meta {
   display: flex;
   justify-content: space-between;
@@ -79,6 +87,13 @@
 
 .document-body {
   margin-top: 20px;
+}
+
+.document-intro {
+  background: #f8f9fb;
+  border-left: 3px solid #3498db;
+  padding: 15px 20px;
+  border-radius: 4px;
 }
 
 .document-section {
@@ -97,6 +112,45 @@
 .document-section p {
   margin-bottom: 10px;
   text-align: justify;
+}
+
+.document-list {
+  margin: 0;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.document-list li {
+  line-height: 1.5;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+}
+
+.details-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 12px 14px;
+  background: #fff;
+}
+
+.details-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #7f8c8d;
+  margin-bottom: 4px;
+}
+
+.details-value {
+  font-size: 14px;
+  color: #2c3e50;
+  word-break: break-word;
 }
 
 .document-signature {
@@ -126,6 +180,10 @@
 
   .document-preview {
     padding: 20px;
+  }
+
+  .details-grid {
+    grid-template-columns: 1fr;
   }
 }
 

@@ -459,8 +459,9 @@ function CustomizeSection({
           <button className="back-btn" onClick={handleBackToTemplates}>
             ← Back to Templates
           </button>
-          <h3>
-            <IconComponent /> {selectedTemplate.name}
+          <h3 className="template-title">
+            <IconComponent className="template-title-icon" />
+            <span>{selectedTemplate.name}</span>
           </h3>
         </div>
         <form onSubmit={handleGenerateDocument} className="customize-form">

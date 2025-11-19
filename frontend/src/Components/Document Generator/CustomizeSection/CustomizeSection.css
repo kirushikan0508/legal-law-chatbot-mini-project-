@@ -63,7 +63,30 @@
 }
 
 /* Template Header */
-.template-header,
+.template-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 25px;
+  gap: 15px;
+}
+
+.template-header .back-btn {
+  align-self: flex-start;
+}
+
+.template-title {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.template-title-icon {
+  font-size: 24px;
+}
+
 .preview-header {
   display: flex;
   align-items: center;
@@ -307,7 +330,6 @@
     grid-template-columns: 1fr;
   }
 
-  .template-header,
   .preview-header {
     flex-direction: column;
     align-items: flex-start;
