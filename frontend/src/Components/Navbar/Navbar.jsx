@@ -16,6 +16,7 @@ function Navbar() {
       {/* Left Section - Logo + Title */}
       <div className="navbar-left">
 
+      <Link to="/home" className="logo-title-link">
         <div className="logo-box">
           <FaBalanceScale className="logo-icon" />
         </div>
@@ -24,7 +25,7 @@ function Navbar() {
             <h2> Legal Assistant AI</h2>
             <p>Sri Lanka Law Guidance</p>
         </div>
-        
+      </Link> 
         
         {/* Hamburger icon (mobile only) */}
         <button className="menu-toggle" onClick={toggleMenu}>
@@ -41,18 +42,6 @@ function Navbar() {
         <Link to="/document" className="nav-btn templates-btn">
           <MdAssignment className="btn-icon" /> Templates
         </Link>
-      
-        <Link to="/" className="nav-btn login-btn">
-          Log in
-        </Link>
-
-        <Link to="/" className="nav-btn signup-btn">
-          Sign up
-        </Link>
-
-        <button className="nav-btn settings-btn" title="Settings">
-          <FiSettings className="btn-icon"  />
-        </button>
 
         <Link to="/" className="nav-btn logout-btn">
            <FiLogOut className="btn-icon"/> Logout

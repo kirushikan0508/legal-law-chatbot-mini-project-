@@ -41,7 +41,7 @@ return (
        <header>
           {user && (
             <p className="welcome-text">
-              Welcome, <strong>{name}</strong> 
+              Welcome, <span>{name}</span> 
             </p>
           )}
        </header>
