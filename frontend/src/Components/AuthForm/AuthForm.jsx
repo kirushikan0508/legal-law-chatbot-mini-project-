@@ -3,6 +3,7 @@ import "./authForm.css";
 import { useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { StoreContext } from "../../context/StoreContext.jsx";
+import { toast } from "react-toastify";
 
 function AuthForm({ isLogin }) {
   const [formData, setFormData] = useState({
@@ -29,17 +30,17 @@ function AuthForm({ isLogin }) {
     // ---- Basic Validation ----
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
-      alert("Please enter a valid email");
+      toast.error("Please enter a valid email");
       return;
     }
 
     if (formData.password.length < 8) {
-      alert("Password must be at least 8 characters long");
+      toast.error("Password must be at least 8 characters long");
       return;
     }
 
     if (!isLogin && formData.password !== formData.confirmPassword) {
-      alert("Passwords do not match!");
+      toast.error("Passwords do not match!");
       return;
     }
 
@@ -50,10 +51,10 @@ function AuthForm({ isLogin }) {
         console.log("Login response:", res);
         
         if (res.success) {
-          alert("Login successful!");
+          toast.success("Login successful!");
           navigate("/home");
         } else {
-          alert(res.message || "Login failed!");
+          toast.error(res.message || "Login failed!");
         }
       } else {
         console.log("Attempting registration...");
@@ -65,22 +66,22 @@ function AuthForm({ isLogin }) {
         console.log("Register response:", res);
         
         if (res.success) {
-          alert("Registration successful!");
+          toast.success("Registration successful!");
           navigate("/home");
         } else {
-          alert(res.message || "Registration failed!");
+          toast.error(res.message || "Registration failed!");
         }
       }
     } catch (err) {
       console.error("Full error:", err);
-      alert(err.response?.data?.message || "Something went wrong!");
+      toast.error(err.response?.data?.message || "Something went wrong!");
     }
   };
 
   const handleForgotPassword = () => {
     const email = prompt("Enter your email to reset password:");
     if (email) {
-      alert(`Password reset link sent to ${email} (Feature coming soon)`);
+      toast.info(`Password reset link sent to ${email} (Feature coming soon)`);
     }
   };
 
