@@ -3,7 +3,7 @@ import { useContext, useState, useEffect } from "react";
 import { StoreContext } from "../../../context/StoreContext";
 
 export default function ChatHistory({ onSelectChat, currentChatId, onNewChat }) {
-  const { user, token, getChatSessions, deleteChatSession } = useContext(StoreContext);
+  const {user, token, getChatSessions, deleteChatSession } = useContext(StoreContext);
   const [chatSessions, setChatSessions] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -99,15 +99,15 @@ export default function ChatHistory({ onSelectChat, currentChatId, onNewChat }) 
     }
   };
 
-  // Refresh sessions when current chat changes (new messages might update titles)
-  useEffect(() => {
-    if (currentChatId) {
-      // Small delay to ensure backend has saved the update
-      setTimeout(() => {
-        loadChatSessions();
-      }, 300);
-    }
-  }, [currentChatId]);
+  // // Refresh sessions when current chat changes (new messages might update titles)
+  // useEffect(() => {
+  //   if (currentChatId) {
+  //     // Small delay to ensure backend has saved the update
+  //     setTimeout(() => {
+  //       loadChatSessions();
+  //     }, 300);
+  //   }
+  // }, [currentChatId]);
 
   if (!user) {
     return (

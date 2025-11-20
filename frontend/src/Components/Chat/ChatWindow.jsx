@@ -271,14 +271,6 @@ export default function ChatWindow() {
       <div className="main-chat-area">
         <div className={`chat-window ${hasConversationStarted ? "expanded" : "compact"}`}>
           {/* Chat Header with Clear Button */}
-          <div className="chat-header">
-            <h3>Legal AI Assistant</h3>
-            {hasConversationStarted && (
-              <button className="clear-chat-btn" onClick={clearChat}>
-                Clear Chat
-              </button>
-            )}
-          </div>
 
           <div className="chat-messages" ref={scrollRef}>
             {messages.map((m) => (
