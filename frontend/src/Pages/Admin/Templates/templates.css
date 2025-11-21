@@ -1,0 +1,17 @@
+.admin-templates h2 {
+  color: #002855;
+  margin-bottom: 20px;
+}
+
+.upload-btn {
+  padding: 10px 18px;
+  background: #002855;
+  color: white;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.upload-btn:hover {
+  background: #0a3c6d;
+}

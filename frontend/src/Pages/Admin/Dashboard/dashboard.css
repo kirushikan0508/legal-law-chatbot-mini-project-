@@ -1,0 +1,10 @@
+.dashboard-page h2 {
+  color: #002855;
+  margin-bottom: 25px;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}

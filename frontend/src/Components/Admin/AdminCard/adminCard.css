@@ -1,0 +1,17 @@
+.admin-card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+.card-title {
+  color: #555;
+  font-size: 14px;
+}
+
+.card-value {
+  font-size: 28px;
+  font-weight: bold;
+  color: #002855;
+}

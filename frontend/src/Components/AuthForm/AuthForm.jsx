@@ -1,7 +1,6 @@
 import { useState, useContext } from "react";
 import "./authForm.css";
 import { useNavigate } from "react-router-dom";
-import { FcGoogle } from "react-icons/fc";
 import { StoreContext } from "../../context/StoreContext.jsx";
 import { toast } from "react-toastify";
 
@@ -140,15 +139,6 @@ function AuthForm({ isLogin }) {
         disabled={loading}
       >
         {loading ? "Processing..." : (isLogin ? "Log In" : "Sign Up")}
-      </button>
-
-      <div className="divider">
-        <span>OR</span>
-      </div>
-
-      <button type="button" className="google-btn" disabled={loading}>
-        <FcGoogle className="google-icon" />
-        Login With Google
       </button>
     </form>
   );

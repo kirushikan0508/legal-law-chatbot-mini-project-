@@ -1,31 +1,49 @@
-/* Custom Toast Styling */
+/* --------------------------
+   LEGAL-THEME TOAST DESIGN
+   Gold + Deep Blue
+--------------------------- */
+
 .Toastify__toast {
   border-radius: 12px !important;
-  padding: 14px 18px !important;
+  padding: 16px 20px !important;
   font-family: "Segoe UI", sans-serif;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 15px;
+  font-weight: 600;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15) !important;
 }
 
+/* Success Toast: Blue Legal Theme */
 .Toastify__toast--success {
-  background: #d4edda !important;
-  color: #155724 !important;
-  border-left: 6px solid #28a745 !important;
+  background: #003366 !important; /* Deep navy legal blue */
+  color: white !important;
+  border-left: 6px solid #4da6ff !important; /* Light blue accent */
 }
 
+/* Error Toast: Gold Warning Theme */
 .Toastify__toast--error {
-  background: #f8d7da !important;
-  color: #721c24 !important;
-  border-left: 6px solid #dc3545 !important;
+  background: #5c0000 !important; /* Deep law red */
+  color: #ffd9d9 !important;
+  border-left: 6px solid #ffcc00 !important; /* Gold accent */
 }
 
+/* Info Toast: Cyan/Legal Blue */
 .Toastify__toast--info {
-  background: #d1ecf1 !important;
-  color: #0c5460 !important;
-  border-left: 6px solid #17a2b8 !important;
+  background: #005b8f !important; 
+  color: #e8f7ff !important;
+  border-left: 6px solid #66d9ff !important;
 }
 
+/* Warning Toast: Gold Theme */
+.Toastify__toast--warning {
+  background: #3f2f00 !important;
+  color: #ffeaaa !important;
+  border-left: 6px solid #ffcc00 !important;
+}
+
+/* Progress Bar */
 .Toastify__progress-bar {
   height: 4px !important;
-  border-radius: 0 0 12px 12px;
+  border-radius: 0 0 12px 12px !important;
+  background: linear-gradient(90deg, #ffcc00, #4da6ff) !important;
 }
