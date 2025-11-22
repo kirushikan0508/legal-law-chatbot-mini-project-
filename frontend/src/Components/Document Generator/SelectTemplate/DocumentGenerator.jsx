@@ -45,6 +45,7 @@ const TEMPLATES_DATA = [
     rating: 4.5,
     votes: 328,
     image: "/images/template-1-employment-contract.jpg",
+    document: "/documents/Employment_Contract.doc",
   },
   {
     id: 2,
@@ -77,6 +78,7 @@ const TEMPLATES_DATA = [
     rating: 4.3,
     votes: 245,
     image: "/images/template-2-termination-letter.jpg",
+    document: "/documents/Termination_Letter.docx",
   },
   {
     id: 3,
@@ -109,6 +111,7 @@ const TEMPLATES_DATA = [
     rating: 4.4,
     votes: 312,
     image: "/images/template-3-non-disclosure-agreement.jpg",
+    document: "/documents/Non_Disclosure_Agreement.docx",
   },
   {
     id: 4,
@@ -141,6 +144,7 @@ const TEMPLATES_DATA = [
     rating: 4.6,
     votes: 356,
     image: "/images/template-4-service-agreement.jpg",
+    document: "/documents/Service_Agreement.doc",
   },
   {
     id: 5,
@@ -165,6 +169,7 @@ const TEMPLATES_DATA = [
     rating: 4.5,
     votes: 289,
     image: "/images/template-5-asset-purchase-agreement.jpg",
+    document: "/documents/Asset_Purchase_Agreement.doc",
   },
   {
     id: 6,
@@ -189,6 +194,7 @@ const TEMPLATES_DATA = [
     rating: 4.4,
     votes: 264,
     image: "/images/template-6-bill-of-sale.jpg",
+    document: "/documents/Bill_Of_Sale.pdf",
   },
   {
     id: 7,
@@ -219,6 +225,7 @@ const TEMPLATES_DATA = [
     rating: 4.5,
     votes: 301,
     image: "/images/template-7-business-contract.jpg",
+    document: "/documents/Business_Contract.doc",
   },
   {
     id: 8,
@@ -248,6 +255,7 @@ const TEMPLATES_DATA = [
     rating: 4.3,
     votes: 218,
     image: "/images/template-8-car-rental-agreement.jpg",
+    document: "/documents/Car_Rental_Agreement.doc",
   },
   {
     id: 9,
@@ -273,6 +281,7 @@ const TEMPLATES_DATA = [
     rating: 4.6,
     votes: 334,
     image: "/images/template-9-collaboration-agreement.jpg",
+    document: "/documents/Collaboration_Agreement.doc",
   },
   {
     id: 10,
@@ -302,6 +311,7 @@ const TEMPLATES_DATA = [
     rating: 4.4,
     votes: 276,
     image: "/images/template-10-commission-agreement.jpg",
+    document: "/documents/Commission_Agreement.doc",
   },
   {
     id: 11,
@@ -334,6 +344,7 @@ const TEMPLATES_DATA = [
     rating: 4.5,
     votes: 242,
     image: "/images/template-11-confidentiality-statement.jpg",
+    document: "/documents/Confidentiality_Statement.docx",
   },
   {
     id: 12,
@@ -363,6 +374,7 @@ const TEMPLATES_DATA = [
     rating: 4.4,
     votes: 298,
     image: "/images/template-12-contract.jpg",
+    document: "/documents/Contract.docx",
   },
   {
     id: 13,
@@ -392,6 +404,7 @@ const TEMPLATES_DATA = [
     rating: 4.3,
     votes: 255,
     image: "/images/template-13-consignment-agreement.jpg",
+    document: "/documents/Consignment_Agreement.docx",
   },
 ];
 
@@ -441,24 +454,28 @@ function DocumentGenerator() {
     setImageError(false); // Reset image error when selecting a new template
   };
 
-  const handleTemplateDownload = (template) => {
-    // Generate mock download
-    const element = document.createElement("a");
-    const file = new Blob(
-      [
-        `This is a template for: ${template.name}\n\n` +
-          `Tips for using this template:\n` +
-          template.tips
-            .map((tip, index) => `${index + 1}. ${tip.title}: ${tip.content}`)
-            .join("\n\n"),
-      ],
-      { type: "text/plain" }
-    );
-    element.href = URL.createObjectURL(file);
-    element.download = `${template.name.replace(/\s+/g, "_")}.txt`;
-    document.body.appendChild(element);
-    element.click();
-    document.body.removeChild(element);
+  const handleTemplateDownload = (template, event) => {
+    if (event) {
+      event.stopPropagation(); // Prevent template selection when clicking download
+    }
+    
+    if (!template.document) {
+      alert(`Document not available for ${template.name}`);
+      return;
+    }
+
+    // Create a link element to download the document
+    const link = document.createElement("a");
+    link.href = template.document;
+    
+    // Extract file extension from the document path
+    const fileExtension = template.document.split('.').pop();
+    link.download = `${template.name.replace(/\s+/g, "_")}.${fileExtension}`;
+    
+    // Append to body, click, and remove
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   const closeTemplateModal = () => {
@@ -506,12 +523,15 @@ function DocumentGenerator() {
                 <FaFileAlt className="template-icon" />
                 <h4>{template.name}</h4>
                 <p>{template.description}</p>
-                <button
-                  className="select-btn"
-                  onClick={() => handleTemplateSelect(template)}
-                >
-                  Select Template
-                </button>
+                <div className="template-card-actions">
+                  <button
+                    className="select-btn"
+                    onClick={() => handleTemplateSelect(template)}
+                  >
+                    Select Template
+                  </button>
+              
+                </div>
               </div>
             ))}
           </div>
@@ -594,14 +614,16 @@ function DocumentGenerator() {
                     </div>
                   </div>
 
-                  <div className="template-actions">
-                    <button
-                      className="download-btn"
-                      onClick={() => handleTemplateDownload(selectedTemplate)}
-                    >
-                      <FaDownload /> Download Now
-                    </button>
-                  </div>
+                  {selectedTemplate.document && (
+                    <div className="template-actions">
+                      <button
+                        className="download-btn"
+                        onClick={() => handleTemplateDownload(selectedTemplate)}
+                      >
+                        <FaDownload /> Download Now
+                      </button>
+                    </div>
+                  )}
 
                   <div className="template-features">
                     <h5>Template Includes:</h5>
