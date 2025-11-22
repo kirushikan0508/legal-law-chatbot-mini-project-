@@ -117,6 +117,13 @@
   line-height: 1.4;
 }
 
+.template-card-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+
 .select-btn {
   background: #3498db;
   color: white;
@@ -126,10 +133,35 @@
   font-size: 12px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
 }
 
 .select-btn:hover {
   background: #2980b9;
+}
+
+.download-btn-card {
+  background: #27ae60;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.download-btn-card:hover {
+  background: #229954;
 }
 
 
