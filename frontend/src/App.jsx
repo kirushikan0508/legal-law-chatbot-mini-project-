@@ -14,6 +14,8 @@ import Chats from "./Pages/Admin/Chats/Chats.jsx";
 import Templates from "./Pages/Admin/Templates/Templates.jsx";
 import Settings from "./Pages/Admin/Settings/Settings.jsx";
 
+
+
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -27,6 +29,9 @@ function App() {
         <Route path="/home" element={<Home />} />  
         <Route path="/chatting" element={<Chatting />} />
         <Route path="/document" element={<Document />} />
+
+        {/* Admin Login */}
+        <Route path="/admin-login" element={<Auth />} />
 
         {/* ADMIN ROUTES */}
         <Route path="/admin" element={<AdminLayout />}>

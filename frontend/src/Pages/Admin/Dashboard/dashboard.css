@@ -1,10 +1,22 @@
+.dashboard-page {
+  padding: 25px;
+}
+
 .dashboard-page h2 {
+  font-size: 30px;
+  margin-bottom: 5px;
   color: #002855;
+}
+
+.dashboard-subtext {
+  font-size: 14px;
+  color: #7f8c8d;
   margin-bottom: 25px;
 }
 
 .dashboard-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
 }
+

@@ -42,10 +42,21 @@
 
 .admin-logout {
   margin-top: auto;
-  padding: 12px;
+  padding: 12px 18px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  font-size: 15px;
   cursor: pointer;
-  border-top: 1px solid #1e3f67;
+  gap: 10px;
+  color: #e74c3c;
+  border-top: 1px solid #ddd;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
 }
+
+.admin-logout:hover {
+  background-color: #fdecea;
+}
+
