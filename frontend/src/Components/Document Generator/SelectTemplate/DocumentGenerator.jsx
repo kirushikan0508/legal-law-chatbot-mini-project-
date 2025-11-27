@@ -21,27 +21,32 @@ const TEMPLATES_DATA = [
     tips: [
       {
         title: "Ensure all employment terms",
-        content: "Ensure all employment terms are clearly stated, including job title, responsibilities, and reporting structure.",
+        content:
+          "Ensure all employment terms are clearly stated, including job title, responsibilities, and reporting structure.",
       },
       {
         title: "Define compensation package",
-        content: "Define compensation package including salary, benefits, bonuses, and any stock options or equity.",
+        content:
+          "Define compensation package including salary, benefits, bonuses, and any stock options or equity.",
       },
       {
         title: "Include provisions for confidentiality",
-        content: "Include provisions for confidentiality, non-compete clauses, and intellectual property rights.",
+        content:
+          "Include provisions for confidentiality, non-compete clauses, and intellectual property rights.",
       },
       {
         title: "Specify the employment duration",
-        content: "Specify the employment duration, whether it's permanent, fixed-term, or at-will employment.",
+        content:
+          "Specify the employment duration, whether it's permanent, fixed-term, or at-will employment.",
       },
       {
         title: "Detail termination conditions",
-        content: "Detail termination conditions, notice period, and severance arrangements to protect both parties.",
+        content:
+          "Detail termination conditions, notice period, and severance arrangements to protect both parties.",
       },
     ],
-    size: "45 KB",
-    pages: 3,
+    size: "28.5 KB",
+    pages: 2,
     rating: 4.5,
     votes: 328,
     image: "/images/template-1-employment-contract.jpg",
@@ -54,26 +59,31 @@ const TEMPLATES_DATA = [
     tips: [
       {
         title: "Ensure the termination date",
-        content: "Ensure the termination date is clearly stated and complies with local labor laws.",
+        content:
+          "Ensure the termination date is clearly stated and complies with local labor laws.",
       },
       {
         title: "Include the reason for termination",
-        content: "Include the reason for termination in a professional and factual manner.",
+        content:
+          "Include the reason for termination in a professional and factual manner.",
       },
       {
         title: "Specify the final compensation",
-        content: "Specify the final compensation, unused vacation days, and severance package.",
+        content:
+          "Specify the final compensation, unused vacation days, and severance package.",
       },
       {
         title: "Outline the return of company property",
-        content: "Outline the return of company property and final paycheck details.",
+        content:
+          "Outline the return of company property and final paycheck details.",
       },
       {
         title: "Include information about benefits",
-        content: "Include information about benefits continuation and references available upon request.",
+        content:
+          "Include information about benefits continuation and references available upon request.",
       },
     ],
-    size: "28 KB",
+    size: "12.2 KB",
     pages: 1,
     rating: 4.3,
     votes: 245,
@@ -87,27 +97,32 @@ const TEMPLATES_DATA = [
     tips: [
       {
         title: "Clearly define what information",
-        content: "Clearly define what information is considered confidential and proprietary.",
+        content:
+          "Clearly define what information is considered confidential and proprietary.",
       },
       {
         title: "Specify the duration of confidentiality",
-        content: "Specify the duration of the confidentiality obligation, whether during employment or indefinitely.",
+        content:
+          "Specify the duration of the confidentiality obligation, whether during employment or indefinitely.",
       },
       {
         title: "Include exceptions to confidentiality",
-        content: "Include exceptions to confidentiality, such as legally required disclosures.",
+        content:
+          "Include exceptions to confidentiality, such as legally required disclosures.",
       },
       {
         title: "Detail consequences of breach",
-        content: "Detail consequences of breach and remedies available to the disclosing party.",
+        content:
+          "Detail consequences of breach and remedies available to the disclosing party.",
       },
       {
         title: "Ensure the agreement complies",
-        content: "Ensure the agreement complies with applicable state and federal laws.",
+        content:
+          "Ensure the agreement complies with applicable state and federal laws.",
       },
     ],
-    size: "38 KB",
-    pages: 2,
+    size: "23.2 KB",
+    pages: 3,
     rating: 4.4,
     votes: 312,
     image: "/images/template-3-non-disclosure-agreement.jpg",
@@ -120,26 +135,31 @@ const TEMPLATES_DATA = [
     tips: [
       {
         title: "Clearly outline the scope",
-        content: "Clearly outline the scope of services to be provided and deliverables expected.",
+        content:
+          "Clearly outline the scope of services to be provided and deliverables expected.",
       },
       {
         title: "Define the service duration",
-        content: "Define the service duration, payment terms, and pricing structure.",
+        content:
+          "Define the service duration, payment terms, and pricing structure.",
       },
       {
         title: "Include liability limitations",
-        content: "Include liability limitations and insurance requirements for the service provider.",
+        content:
+          "Include liability limitations and insurance requirements for the service provider.",
       },
       {
         title: "Specify termination conditions",
-        content: "Specify termination conditions, notice requirements, and cancellation policies.",
+        content:
+          "Specify termination conditions, notice requirements, and cancellation policies.",
       },
       {
         title: "Include dispute resolution procedures",
-        content: "Include dispute resolution procedures and governing law clauses.",
+        content:
+          "Include dispute resolution procedures and governing law clauses.",
       },
     ],
-    size: "42 KB",
+    size: "31.5 KB",
     pages: 3,
     rating: 4.6,
     votes: 356,
@@ -153,18 +173,21 @@ const TEMPLATES_DATA = [
     tips: [
       {
         title: "Clarity and Specificity",
-        content: "When using an Asset Purchase Agreement template, ensure all assets being purchased are described in precise detail. This includes the condition, location, and any pertinent serial numbers or identifiers.",
+        content:
+          "When using an Asset Purchase Agreement template, ensure all assets being purchased are described in precise detail. This includes the condition, location, and any pertinent serial numbers or identifiers.",
       },
       {
         title: "Valuation and Payment Terms",
-        content: "Clearly outline the agreed-upon price for the assets and the terms of payment. This may involve installments, upfront payments, or other financing arrangements, all of which should be documented accurately.",
+        content:
+          "Clearly outline the agreed-upon price for the assets and the terms of payment. This may involve installments, upfront payments, or other financing arrangements, all of which should be documented accurately.",
       },
       {
         title: "Legal Compliance and Liabilities",
-        content: "Address all requisite legal compliances, warranties, and representations. Include which party bears liabilities for any debts or legal issues attached to the assets, both before and after the sale.",
+        content:
+          "Address all requisite legal compliances, warranties, and representations. Include which party bears liabilities for any debts or legal issues attached to the assets, both before and after the sale.",
       },
     ],
-    size: "52 KB",
+    size: "70 KB",
     pages: 4,
     rating: 4.5,
     votes: 289,
@@ -178,23 +201,26 @@ const TEMPLATES_DATA = [
     tips: [
       {
         title: "Ensure Accuracy of Details",
-        content: "Double-check the item's description, including make, model, and serial number, as well as the parties' names and addresses for accuracy. Details must be precise to avoid future disputes.",
+        content:
+          "Double-check the item's description, including make, model, and serial number, as well as the parties' names and addresses for accuracy. Details must be precise to avoid future disputes.",
       },
       {
         title: "Define Payment Terms",
-        content: "Clearly outline the agreed payment amount, method, and schedule. It's crucial to state if the sale is conditional on certain payment terms being met to secure a binding agreement.",
+        content:
+          "Clearly outline the agreed payment amount, method, and schedule. It's crucial to state if the sale is conditional on certain payment terms being met to secure a binding agreement.",
       },
       {
         title: "State the Condition of the Item",
-        content: "Accurately describe the item's condition at the time of sale. This should include any existing faults or warranties to prevent misunderstanding and potential legal issues post-sale.",
+        content:
+          "Accurately describe the item's condition at the time of sale. This should include any existing faults or warranties to prevent misunderstanding and potential legal issues post-sale.",
       },
     ],
-    size: "38 KB",
+    size: "71.8 KB",
     pages: 1,
     rating: 4.4,
     votes: 264,
     image: "/images/template-6-bill-of-sale.jpg",
-    document: "/documents/Bill_Of_Sale.pdf",
+    document: "/documents/Bill_Of_Sale.docx",
   },
   {
     id: 7,
@@ -203,24 +229,27 @@ const TEMPLATES_DATA = [
     tips: [
       {
         title: "Clarity of Terms",
-        content: "Define all the terms and conditions of the business contract clearly. Each party’s obligations, rights, and responsibilities should be explicitly stated to avoid future disputes.",
+        content:
+          "Define all the terms and conditions of the business contract clearly. Each party’s obligations, rights, and responsibilities should be explicitly stated to avoid future disputes.",
       },
       {
         title: "Be Comprehensive",
-        content: "Ensure that the template covers all potential areas including payment terms, duration, confidentiality, and termination clauses. Tailor it to include specifics relevant to your business scenario.",
+        content:
+          "Ensure that the template covers all potential areas including payment terms, duration, confidentiality, and termination clauses. Tailor it to include specifics relevant to your business scenario.",
       },
 
       {
         title: "Include payment terms",
-        content: "Include payment terms, delivery schedules, and performance metrics.",
+        content:
+          "Include payment terms, delivery schedules, and performance metrics.",
       },
       {
         title: "Legal Compliance",
-        content: "Verify that the contract adheres to all applicable laws and regulations. It's essential to consult with a legal professional to confirm that the contract is enforceable in court.",
+        content:
+          "Verify that the contract adheres to all applicable laws and regulations. It's essential to consult with a legal professional to confirm that the contract is enforceable in court.",
       },
-    
     ],
-    size: "48 KB",
+    size: "22.5 KB",
     pages: 3,
     rating: 4.5,
     votes: 301,
@@ -234,24 +263,27 @@ const TEMPLATES_DATA = [
     tips: [
       {
         title: "Accuracy of Details",
-        content: "Ensure all vehicle and renter information is correct. Double-check the vehicle identification number (VIN), rental period, and renter's driving license details. Accuracy is crucial for legal protection.",
+        content:
+          "Ensure all vehicle and renter information is correct. Double-check the vehicle identification number (VIN), rental period, and renter's driving license details. Accuracy is crucial for legal protection.",
       },
       {
         title: "Clarity of Terms",
-        content: "Clearly outline rental terms including payment, insurance coverage, mileage limits, and late return penalties. Precise terms prevent misunderstandings and disputes with renters.",
+        content:
+          "Clearly outline rental terms including payment, insurance coverage, mileage limits, and late return penalties. Precise terms prevent misunderstandings and disputes with renters.",
       },
       {
         title: "Inspection Protocol",
-        content: "Include a thorough pre-rental vehicle inspection checklist. Documenting the  car's condition before and after rental can help resolve any damage claims or disputes.",
+        content:
+          "Include a thorough pre-rental vehicle inspection checklist. Documenting the  car's condition before and after rental can help resolve any damage claims or disputes.",
       },
       {
         title: "Specify fuel policy",
-        content: "Specify fuel policy and any applicable charges for cleaning or maintenance.",
+        content:
+          "Specify fuel policy and any applicable charges for cleaning or maintenance.",
       },
-
     ],
     size: "35 KB",
-    pages: 2,
+    pages: 4,
     rating: 4.3,
     votes: 218,
     image: "/images/template-8-car-rental-agreement.jpg",
@@ -264,19 +296,21 @@ const TEMPLATES_DATA = [
     tips: [
       {
         title: "Clarity of Roles and Responsibilities",
-        content: "Clearly delineate each party's obligations and contributions in the collaboration agreement to prevent ambiguities and possible disputes. Specificity is key for a harmonious partnership.",
+        content:
+          "Clearly delineate each party's obligations and contributions in the collaboration agreement to prevent ambiguities and possible disputes. Specificity is key for a harmonious partnership.",
       },
       {
         title: "Dispute Resolution Mechanisms",
-        content: "No matter how strong the partnership, disagreements can arise. Include a section that outlines the steps to be taken for conflict resolution, which can save both time and resources.",
+        content:
+          "No matter how strong the partnership, disagreements can arise. Include a section that outlines the steps to be taken for conflict resolution, which can save both time and resources.",
       },
       {
         title: "Termination Conditions",
-        content: "Define the circumstances under which the collaboration may be terminated, including notice periods and final settlement details. This will facilitate a clean and clear conclusion if necessary.",
+        content:
+          "Define the circumstances under which the collaboration may be terminated, including notice periods and final settlement details. This will facilitate a clean and clear conclusion if necessary.",
       },
-
     ],
-    size: "41 KB",
+    size: "31 KB",
     pages: 2,
     rating: 4.6,
     votes: 334,
@@ -290,24 +324,27 @@ const TEMPLATES_DATA = [
     tips: [
       {
         title: "Specify the Commission Structure",
-        content: "Clearly define how commissions will be calculated. Include percentages, sales targets, and timeframes to avoid any confusion.",
+        content:
+          "Clearly define how commissions will be calculated. Include percentages, sales targets, and timeframes to avoid any confusion.",
       },
       {
         title: "Outline Duties and Obligations",
-        content: "Detail the responsibilities of each party. This helps to set expectations and reduce potential disputes regarding performance and compensation.",
+        content:
+          "Detail the responsibilities of each party. This helps to set expectations and reduce potential disputes regarding performance and compensation.",
       },
       {
         title: "Define the Duration and Termination Conditions",
-        content: "Establish the agreement’s effective period and terms under which it can be terminated by either party, ensuring legal protection.",
+        content:
+          "Establish the agreement’s effective period and terms under which it can be terminated by either party, ensuring legal protection.",
       },
       {
         title: "Define territory or customer base",
-        content: "Define territory or customer base for which commissions apply.",
+        content:
+          "Define territory or customer base for which commissions apply.",
       },
-
     ],
-    size: "32 KB",
-    pages: 1,
+    size: "44 KB",
+    pages: 2,
     rating: 4.4,
     votes: 276,
     image: "/images/template-10-commission-agreement.jpg",
@@ -320,26 +357,31 @@ const TEMPLATES_DATA = [
     tips: [
       {
         title: "Clarity is Key",
-        content: "Ensure the confidentiality statement is clear and unequivocal. Avoid legal jargon to make it understandable for all parties involved.",
+        content:
+          "Ensure the confidentiality statement is clear and unequivocal. Avoid legal jargon to make it understandable for all parties involved.",
       },
       {
         title: "Scope of Confidentiality",
-        content: "Define the scope of the confidential information. Specify what is considered confidential and any exclusions to maintain transparency.",
+        content:
+          "Define the scope of the confidential information. Specify what is considered confidential and any exclusions to maintain transparency.",
       },
       {
         title: "Include return or destruction obligations",
-        content: "Include return or destruction obligations for confidential materials.",
+        content:
+          "Include return or destruction obligations for confidential materials.",
       },
       {
         title: "Obligations and Consequences",
-        content: "Detail the obligations of the recipient of the confidential information and outline the consequences of breaching the agreement to reinforce its seriousness.",
+        content:
+          "Detail the obligations of the recipient of the confidential information and outline the consequences of breaching the agreement to reinforce its seriousness.",
       },
       {
         title: "Include remedies for breach",
-        content: "Include remedies for breach and acknowledgment of irreparable harm.",
+        content:
+          "Include remedies for breach and acknowledgment of irreparable harm.",
       },
     ],
-    size: "28 KB",
+    size: "25 KB",
     pages: 1,
     rating: 4.5,
     votes: 242,
@@ -353,24 +395,28 @@ const TEMPLATES_DATA = [
     tips: [
       {
         title: "Clarity and Specificity",
-        content: "Ensure that the contract clearly outlines the parties involved, specific terms, responsibilities, timelines, and deliverables. Remove any ambiguous language to prevent misunderstandings.",
+        content:
+          "Ensure that the contract clearly outlines the parties involved, specific terms, responsibilities, timelines, and deliverables. Remove any ambiguous language to prevent misunderstandings.",
       },
       {
         title: "Legally Binding Language",
-        content: "Use formal and precise language that is typical for contracts. Avoid colloquialism or informal terms that might be misinterpreted or dismissed in legal settings.",
+        content:
+          "Use formal and precise language that is typical for contracts. Avoid colloquialism or informal terms that might be misinterpreted or dismissed in legal settings.",
       },
 
       {
         title: "Key Provisions and Contingencies",
-        content: "Include crucial provisions such as confidentiality clauses, dispute resolution mechanisms, and termination conditions. Address any possible contingencies to cover unforeseen circumstances.",
+        content:
+          "Include crucial provisions such as confidentiality clauses, dispute resolution mechanisms, and termination conditions. Address any possible contingencies to cover unforeseen circumstances.",
       },
       {
         title: "Ensure all parties have legal capacity",
-        content: "Ensure all parties have legal capacity and authority to execute the contract.",
+        content:
+          "Ensure all parties have legal capacity and authority to execute the contract.",
       },
     ],
-    size: "40 KB",
-    pages: 2,
+    size: "14 KB",
+    pages: 1,
     rating: 4.4,
     votes: 298,
     image: "/images/template-12-contract.jpg",
@@ -383,21 +429,24 @@ const TEMPLATES_DATA = [
     tips: [
       {
         title: "Clarity of Terms",
-        content: "Ensure all critical elements such as consignment duration, revenue share, and item handling are well-defined to prevent misunderstandings.",
+        content:
+          "Ensure all critical elements such as consignment duration, revenue share, and item handling are well-defined to prevent misunderstandings.",
       },
       {
         title: "Inventory List",
-        content: "Include a detailed inventory list with descriptions of the consigned items to maintain accuracy and accountability throughout the consignment period.",
+        content:
+          "Include a detailed inventory list with descriptions of the consigned items to maintain accuracy and accountability throughout the consignment period.",
       },
       {
         title: "Legal Requirements",
-        content: "Familiarize yourself with local laws governing consignments to ensure the agreement complies with regional statutes and regulations.",
+        content:
+          "Familiarize yourself with local laws governing consignments to ensure the agreement complies with regional statutes and regulations.",
       },
       {
         title: "Detail inventory management",
-        content: "Detail inventory management, storage, and insurance responsibilities.",
+        content:
+          "Detail inventory management, storage, and insurance responsibilities.",
       },
-
     ],
     size: "39 KB",
     pages: 2,
@@ -458,7 +507,7 @@ function DocumentGenerator() {
     if (event) {
       event.stopPropagation(); // Prevent template selection when clicking download
     }
-    
+
     if (!template.document) {
       alert(`Document not available for ${template.name}`);
       return;
@@ -467,11 +516,11 @@ function DocumentGenerator() {
     // Create a link element to download the document
     const link = document.createElement("a");
     link.href = template.document;
-    
+
     // Extract file extension from the document path
-    const fileExtension = template.document.split('.').pop();
+    const fileExtension = template.document.split(".").pop();
     link.download = `${template.name.replace(/\s+/g, "_")}.${fileExtension}`;
-    
+
     // Append to body, click, and remove
     document.body.appendChild(link);
     link.click();
@@ -530,7 +579,6 @@ function DocumentGenerator() {
                   >
                     Select Template
                   </button>
-              
                 </div>
               </div>
             ))}
@@ -578,8 +626,8 @@ function DocumentGenerator() {
                 <div className="template-details-section">
                   <div className="template-preview-box">
                     {selectedTemplate.image && !imageError ? (
-                      <img 
-                        src={selectedTemplate.image} 
+                      <img
+                        src={selectedTemplate.image}
                         alt={selectedTemplate.name}
                         className="template-preview-image"
                         onError={() => setImageError(true)}
@@ -673,4 +721,3 @@ function DocumentGenerator() {
 }
 
 export default DocumentGenerator;
-
