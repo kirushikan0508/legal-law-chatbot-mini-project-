@@ -1,4 +1,4 @@
-import "./AdminHeader.css";
+import "./adminHeader.css";
 
 export default function AdminHeader() {
   return (

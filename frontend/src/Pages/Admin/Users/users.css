@@ -1,4 +1,100 @@
-.admin-users h2 {
+/* .admin-users h2 {
   color: #002855;
   margin-bottom: 15px;
+} */
+
+/* Container */
+.users-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Heading */
+.users-container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Input & Add Button */
+.users-container input {
+  width: calc(100% - 110px);
+  padding: 10px 12px;
+  margin-right: 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  outline: none;
+  transition: border 0.2s;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+
+}
+
+.users-container input:hover {
+  border-color: #083c74;
+}
+
+/* Add Button */
+.users-container button {
+  padding: 10px 18px;
+  background-color:#083c74;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.users-container button:hover {
+  background-color: #0056b3;
+}
+
+.UserAdd{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+
+}
+
+/* User List */
+.users-container ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.users-container li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.users-container li:hover {
+  transform: translateY(-2px);
+  background-color: #f1f1f1;
+}
+
+/* Delete Button */
+.users-container li button {
+  background-color: #dc3545;
+  padding: 6px 12px;
+  font-size: 14px;
+}
+
+.users-container li button:hover {
+  background-color: #a71d2a;
 }
