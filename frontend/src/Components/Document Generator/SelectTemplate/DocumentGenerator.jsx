@@ -49,7 +49,7 @@ const TEMPLATES_DATA = [
     pages: 2,
     rating: 4.5,
     votes: 328,
-    image: "/images/template-1-employment-contract.jpg",
+    image: "/images/template-1-employment-contract.png",
     document: "/documents/Employment_Contract.doc",
   },
   {

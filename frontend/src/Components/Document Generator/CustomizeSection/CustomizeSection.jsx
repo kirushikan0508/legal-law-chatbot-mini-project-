@@ -386,21 +386,118 @@ function CustomizeSection({
     try {
       const doc = new jsPDF();
       const pageWidth = doc.internal.pageSize.getWidth();
-      const margin = 15;
-      const maxWidth = pageWidth - margin * 2;
-      
-      const lines = doc.splitTextToSize(editedDocument, maxWidth);
-      const lineHeight = 7;
       const pageHeight = doc.internal.pageSize.getHeight();
-      let y = 20;
+      const margin = 20;
+      const maxWidth = pageWidth - margin * 2;
+      let y = margin;
+      let lineIndex = 0;
 
-      lines.forEach((line) => {
-        if (y + lineHeight > pageHeight - margin) {
+      // Helper function to check if we need a new page
+      const checkNewPage = (requiredHeight) => {
+        if (y + requiredHeight > pageHeight - margin) {
           doc.addPage();
           y = margin;
         }
-        doc.text(line, margin, y);
-        y += lineHeight;
+      };
+
+      // Split document into lines
+      const lines = editedDocument.split('\n');
+      
+      // Main font sizes
+      const mainFontSize = 14; // For headings/titles
+      const regularFontSize = 12; // For regular text
+
+      lines.forEach((line, index) => {
+        lineIndex = index;
+        const trimmedLine = line.trim();
+        
+        // Skip empty lines but add spacing
+        if (trimmedLine === '') {
+          y += 5;
+          return;
+        }
+
+        // Check if it's a main title (all caps, no number prefix, appears early in document)
+        const isMainTitle = trimmedLine.length > 0 && 
+                           trimmedLine === trimmedLine.toUpperCase() && 
+                           !trimmedLine.match(/^\d+\./) &&
+                           trimmedLine.length > 5 &&
+                           !trimmedLine.includes(':') &&
+                           !trimmedLine.startsWith('Date:') &&
+                           !trimmedLine.startsWith('From:') &&
+                           !trimmedLine.startsWith('To:') &&
+                           !trimmedLine.startsWith('Subject:') &&
+                           !trimmedLine.startsWith('Dear') &&
+                           !trimmedLine.startsWith('Sincerely') &&
+                           index < 5;
+
+        // Check if it's a section heading (numbered section or special all-caps labels)
+        const isSectionHeading = trimmedLine.match(/^\d+\.\s+[A-Z]/) !== null || 
+                                 trimmedLine.match(/^[A-Z][A-Z\s]+:$/) !== null ||
+                                 (trimmedLine === trimmedLine.toUpperCase() && 
+                                  trimmedLine.length > 0 && 
+                                  trimmedLine.length < 60 &&
+                                  !trimmedLine.includes('[') &&
+                                  !trimmedLine.includes('$') &&
+                                  (trimmedLine.includes('WITNESS') || 
+                                   trimmedLine.includes('PARTY') ||
+                                   trimmedLine.includes('EMPLOYER') ||
+                                   trimmedLine.includes('EMPLOYEE') ||
+                                   trimmedLine.includes('DISCLOSING') ||
+                                   trimmedLine.includes('RECEIVING') ||
+                                   trimmedLine.includes('SERVICE PROVIDER') ||
+                                   trimmedLine.includes('CLIENT') ||
+                                   trimmedLine.includes('LANDLORD') ||
+                                   trimmedLine.includes('TENANT') ||
+                                   trimmedLine.includes('PRINCIPAL') ||
+                                   trimmedLine.includes('AGENT') ||
+                                   trimmedLine.includes('SENDER') ||
+                                   trimmedLine.includes('RECIPIENT') ||
+                                   trimmedLine.match(/^\d+\./)));
+
+        // Check if it's a signature line
+        const isSignatureLine = trimmedLine.includes('________________') || 
+                                trimmedLine === trimmedLine.toUpperCase() && 
+                                (trimmedLine.includes('WITNESSED') || 
+                                 trimmedLine === 'WITNESS NAME' ||
+                                 trimmedLine.includes('EMPLOYER') ||
+                                 trimmedLine.includes('EMPLOYEE'));
+
+        // Determine font size and style
+        let fontSize = regularFontSize;
+        let fontStyle = "normal";
+        
+        if (isMainTitle || isSectionHeading) {
+          fontSize = mainFontSize;
+          fontStyle = "bold";
+        } else if (isSignatureLine) {
+          fontSize = regularFontSize;
+          fontStyle = "bold";
+        }
+        
+        doc.setFontSize(fontSize);
+        doc.setFont("helvetica", fontStyle);
+
+        // Split long lines to fit page width
+        const textLines = doc.splitTextToSize(trimmedLine, maxWidth);
+        const lineHeight = fontSize * 0.45;
+        
+        textLines.forEach((textLine) => {
+          checkNewPage(lineHeight + 2);
+          doc.text(textLine, margin, y);
+          y += lineHeight;
+        });
+
+        // Add extra spacing after different types of content
+        if (isMainTitle) {
+          y += 10;
+        } else if (isSectionHeading) {
+          y += 6;
+        } else if (isSignatureLine) {
+          y += 4;
+        } else {
+          y += 3;
+        }
       });
 
       const fileName = selectedTemplate
