@@ -9,6 +9,35 @@ const StoreContextProvider = (props) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false);
 
+   // --- Admin Login ---
+  const adminLogin = async (email, password) => {
+    setLoading(true);
+    try {
+      const response = await axios.post(`${url}/api/admin/login`, {
+        email,
+        password,
+      });
+      const data = response.data;
+
+      if (data.success) {
+        setToken(data.token);
+        setUser(data.user);
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("loggedInUser", JSON.stringify(data.user));
+      }
+
+      return data;
+    } catch (error) {
+      console.error("Admin login failed:", error.response?.data || error.message);
+      return error.response?.data || { 
+        success: false, 
+        message: "Network error or server unavailable" 
+      };
+    } finally {
+      setLoading(false);
+    }
+  };
+
   // --- Register User ---
   const registerUser = async (name, email, password) => {
     setLoading(true);
@@ -23,6 +52,7 @@ const StoreContextProvider = (props) => {
       if (data.success) {
         setToken(data.token);
         setUser(data.user);
+
         localStorage.setItem("token", data.token);
         localStorage.setItem("loggedInUser", JSON.stringify(data.user));
       }
@@ -43,6 +73,12 @@ const StoreContextProvider = (props) => {
   const loginUser = async (email, password) => {
     setLoading(true);
     try {
+      // Check if it's admin login
+      if (email === "admin@gmail.com" || email === "admin") {
+        return await adminLogin(email, password);
+      }
+
+      //Regular user login
       const response = await axios.post(`${url}/api/user/login`, {
         email,
         password,
@@ -67,6 +103,13 @@ const StoreContextProvider = (props) => {
       setLoading(false);
     }
   };
+
+   // --- Check if user is admin ---
+  const isAdmin = () => {
+    if (!user) return false;
+    return user.role === 'admin' || user.email === "admin@gmail.com";
+  };
+
 
   // --- Chat with AI ---
   const sendChatMessage = async (message, sessionId = null) => {
@@ -245,9 +288,11 @@ const StoreContextProvider = (props) => {
     user,
     setUser,
     loading,
+    adminLogin,
     registerUser,
     loginUser,
     logoutUser,
+    isAdmin,
     sendChatMessage,
     // Chat History Functions
     saveChatHistory,

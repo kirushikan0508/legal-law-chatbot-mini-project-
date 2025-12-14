@@ -44,18 +44,31 @@ function AuthForm({ isLogin }) {
     }
 
     try {
+      let res;
       if (isLogin) {
         console.log("Attempting login...");
-        const res = await loginUser(formData.email, formData.password);
+       res = await loginUser(formData.email, formData.password);
         console.log("Login response:", res);
         
         if (res.success) {
           toast.success("Login successful!");
-          navigate("/home");
+
+          // Check if user is admin
+          if (res.user?.role === 'admin') {
+            navigate("/admin"); // Redirect to admin dashboard
+          } else {
+          navigate("/home"); 
+          }
         } else {
           toast.error(res.message || "Login failed!");
         }
-      } else {
+        } else {
+        // Don't allow registration with admin email
+        if (formData.email === "admin@gmail.com") {
+          toast.error("Cannot register with admin email");
+          return;
+        }
+     
         console.log("Attempting registration...");
         const res = await registerUser(
           formData.name,
@@ -140,6 +153,7 @@ function AuthForm({ isLogin }) {
       >
         {loading ? "Processing..." : (isLogin ? "Log In" : "Sign Up")}
       </button>
+
     </form>
   );
 }
