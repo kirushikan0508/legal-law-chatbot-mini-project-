@@ -6,8 +6,8 @@ import { getSummary } from "../api/adminAPI";
 export default function Dashboard() {
   const [summary, setSummary] = useState({
     users: "--",
-    chats: "--",
     templates: "--",
+    documents: "--",
   });
 
   const [loading, setLoading] = useState(true);
@@ -21,13 +21,12 @@ export default function Dashboard() {
         if (response.success) {
           setSummary({
             users: response.totalUsers,
-            chats: response.totalChats,
             templates: response.totalTemplates,
+            documents: response.totalDocuments,
+            
           });
 
-        } else {
-          console.error("Failed to load admin summary:", response.message);
-        }
+        } 
       } catch (error) {
         console.error("Dashboard Summary Error:", error);
       } finally {
@@ -50,14 +49,15 @@ export default function Dashboard() {
         />
 
         <AdminCard 
-          title="Total Chats" 
-          value={loading ? "Loading..." : summary.chats} 
-        />
-
-        <AdminCard 
           title="Templates" 
           value={loading ? "Loading..." : summary.templates} 
         />
+
+        <AdminCard
+          title="Legal Documents"
+          value={loading ? "Loading..." : summary.documents}
+        />
+        
       </div>
     </div>
   );

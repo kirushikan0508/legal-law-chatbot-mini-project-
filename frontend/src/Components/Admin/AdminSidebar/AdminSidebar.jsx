@@ -3,8 +3,7 @@ import "./AdminSidebar.css";
 import { 
   FaUsers, 
   FaComments, 
-  FaFileAlt, 
-  FaCog, 
+  // FaCog, 
   FaTachometerAlt, 
   FaSignOutAlt, 
   FaBalanceScale 
@@ -16,10 +15,9 @@ function AdminSidebar() {
 
   const links = [
     { label: "Dashboard", path: "/admin", icon: <FaTachometerAlt /> },
-    { label: "Users", path: "/admin/users", icon: <FaUsers /> },
-    { label: "Chats", path: "/admin/chats", icon: <FaComments /> },
-    { label: "Templates", path: "/admin/templates", icon: <FaFileAlt /> },
-    { label: "Settings", path: "/admin/settings", icon: <FaCog /> },
+    { label: "File History", path: "/admin/file-history", icon: <FaUsers /> },
+    { label: "Documents", path: "/admin/documents", icon: <FaComments /> }, 
+    // { label: "Settings", path: "/admin/settings", icon: <FaCog /> },
   ];
 
   const handleLogout = () => {

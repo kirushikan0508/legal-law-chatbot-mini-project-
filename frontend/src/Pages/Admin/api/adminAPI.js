@@ -38,8 +38,8 @@ export const getSummary = async () => {
     return {
       success: true,
       totalUsers: load("admin_users").length,
-      totalChats: load("admin_chats").length,
       totalTemplates: load("admin_templates").length,
+      totalDocuments: load("admin_documents").length,  
     };
   } catch (err) {
     return { success: false, message: err.message };
@@ -60,8 +60,9 @@ export const addUser = async (user) => {
 };
 
 export const updateUser = async (id, updatedData) => {
-  let users = load("admin_users");
-  users = users.map(u => (u.id === id ? { ...u, ...updatedData } : u));
+  const users = load("admin_users").map(u =>
+    u.id === id ? { ...u, ...updatedData } : u
+  );
   save("admin_users", users);
   return { success: true };
 };
@@ -69,18 +70,6 @@ export const updateUser = async (id, updatedData) => {
 export const deleteUser = async (id) => {
   const users = load("admin_users").filter(u => u.id !== id);
   save("admin_users", users);
-  return { success: true };
-};
-
-
-
-//                       CHATS
-
-export const getChats = async () => load("admin_chats");
-
-export const deleteChat = async (id) => {
-  const chats = load("admin_chats").filter(c => c.id !== id);
-  save("admin_chats", chats);
   return { success: true };
 };
 
@@ -95,14 +84,16 @@ export const createTemplate = async (template) => {
   templates.push({
     id: Date.now(),
     ...template,
+    createdAt: new Date().toISOString(),
   });
   save("admin_templates", templates);
   return { success: true };
 };
 
 export const updateTemplate = async (id, newData) => {
-  let templates = load("admin_templates");
-  templates = templates.map(t => (t.id === id ? { ...t, ...newData } : t));
+  let templates = load("admin_templates").map(t =>
+    t.id === id ? { ...t, ...newData } : t
+  );
   save("admin_templates", templates);
   return { success: true };
 };
@@ -113,15 +104,36 @@ export const deleteTemplate = async (id) => {
   return { success: true };
 };
 
+// ==================================================
+//               LEGAL DOCUMENTS (VECTOR DB META)
+// ==================================================
+export const getDocuments = async () => load("admin_documents");
 
-
-//                     SETTINGS
-
-export const getSettings = async () => {
-  return JSON.parse(localStorage.getItem("admin_settings")) || {};
-};
-
-export const saveSettings = async (settings) => {
-  localStorage.setItem("admin_settings", JSON.stringify(settings));
+export const addDocument = async (document) => {
+  const documents = load("admin_documents");
+  documents.push({
+    id: Date.now(),
+    ...document,
+    uploadedAt: new Date().toISOString(),
+  });
+  save("admin_documents", documents);
   return { success: true };
 };
+
+export const deleteDocument = async (id) => {
+  const documents = load("admin_documents").filter(d => d.id !== id);
+  save("admin_documents", documents);
+  return { success: true };
+};
+
+// ==================================================
+//                 FILE HISTORY
+// ==================================================
+export const getFileHistory = async () => {
+  // Same as documents for now
+  return load("admin_documents");
+};
+
+
+
+

@@ -9,10 +9,8 @@ import './App.css'
 // Admin Pages + Layout
 import AdminLayout from "./Pages/Admin/AdminLayout/AdminLayout.jsx";
 import Dashboard from "./Pages/Admin/Dashboard/Dashboard.jsx";
-import Users from "./Pages/Admin/Users/Users.jsx";
-import Chats from "./Pages/Admin/Chats/Chats.jsx";
-import Templates from "./Pages/Admin/Templates/Templates.jsx";
-import Settings from "./Pages/Admin/Settings/Settings.jsx";
+import Documents from "./Pages/Admin/Documents/Documents.jsx";
+import FileHistory from "./Pages/Admin/FileHistory/FileHistory.jsx";
 
 
 
@@ -36,10 +34,8 @@ function App() {
         {/* ADMIN ROUTES */}
         <Route path="/admin" element={<AdminLayout />}>
           <Route index element={<Dashboard />} />
-          <Route path="users" element={<Users />} />
-          <Route path="chats" element={<Chats />} />
-          <Route path="templates" element={<Templates />} />
-          <Route path="settings" element={<Settings />} />
+          <Route path="file-history" element={<FileHistory />} />
+          <Route path="documents" element={<Documents />} />
         </Route>
         
       </Routes>
