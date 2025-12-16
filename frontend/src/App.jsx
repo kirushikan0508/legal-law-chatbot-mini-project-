@@ -4,27 +4,26 @@ import Auth from "./Pages/Auth/Auth.jsx";
 import Home from "./Pages/Home/Home.jsx";
 import Chatting from "./Pages/Chatting/Chatting.jsx";
 import Document from "./Pages/Document/Document.jsx";
-import './App.css'
+import "./App.css";
 
 // Admin Pages + Layout
 import AdminLayout from "./Pages/Admin/AdminLayout/AdminLayout.jsx";
 import Dashboard from "./Pages/Admin/Dashboard/Dashboard.jsx";
-import Documents from "./Pages/Admin/Documents/Documents.jsx";
-import FileHistory from "./Pages/Admin/FileHistory/FileHistory.jsx";
-
-
+import Users from "./Pages/Admin/Users/Users.jsx";
+import Chats from "./Pages/Admin/Chats/Chats.jsx";
+import Templates from "./Pages/Admin/Templates/Templates.jsx";
+import Settings from "./Pages/Admin/Settings/Settings.jsx";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function App() {
-  
   return (
     <BrowserRouter>
-     <ToastContainer position="top-right" autoClose={2500} />
+      <ToastContainer position="top-right" autoClose={2500} />
       <Routes>
         <Route path="/" element={<Auth />} />
-        <Route path="/home" element={<Home />} />  
+        <Route path="/home" element={<Home />} />
         <Route path="/chatting" element={<Chatting />} />
         <Route path="/document" element={<Document />} />
 
@@ -34,10 +33,11 @@ function App() {
         {/* ADMIN ROUTES */}
         <Route path="/admin" element={<AdminLayout />}>
           <Route index element={<Dashboard />} />
-          <Route path="file-history" element={<FileHistory />} />
-          <Route path="documents" element={<Documents />} />
+          <Route path="users" element={<Users />} />
+          <Route path="chats" element={<Chats />} />
+          <Route path="templates" element={<Templates />} />
+          <Route path="settings" element={<Settings />} />
         </Route>
-        
       </Routes>
     </BrowserRouter>
   );
