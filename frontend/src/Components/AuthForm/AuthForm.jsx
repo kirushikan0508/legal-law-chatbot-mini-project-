@@ -140,11 +140,11 @@ function AuthForm({ isLogin }) {
         />
       )}
 
-      {isLogin && (
+      {/* {isLogin && (
         <a href="#" className="forgot-link" onClick={handleForgotPassword}>
           Forget Password?
         </a>
-      )}
+      )} */}
 
       <button 
         className="submit-btn" 

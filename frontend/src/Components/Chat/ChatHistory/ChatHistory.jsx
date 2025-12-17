@@ -99,15 +99,6 @@ export default function ChatHistory({ onSelectChat, currentChatId, onNewChat }) 
     }
   };
 
-  // // Refresh sessions when current chat changes (new messages might update titles)
-  // useEffect(() => {
-  //   if (currentChatId) {
-  //     // Small delay to ensure backend has saved the update
-  //     setTimeout(() => {
-  //       loadChatSessions();
-  //     }, 300);
-  //   }
-  // }, [currentChatId]);
 
   if (!user) {
     return (

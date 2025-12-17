@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #f5f7fb;
+  background: linear-gradient(135deg, #8c9bde 0%, #1334c4 100%);
   min-height: 100vh;
   padding-top: 40px;
   font-family: "Segoe UI", Arial, sans-serif;
@@ -17,7 +17,7 @@
 
 .auth-header h1 {
   font-size: 28px;
-  color: #1e3a8a;
+  color:rgb(47, 44, 44);
   font-weight: 700;
   display: flex;
   align-items: center;
@@ -27,7 +27,7 @@
 
 .auth-header p {
   font-size: 14px;
-  color: #6b7280;
+ color:rgb(47, 44, 44);
   margin-top: -5px;
   font-style: italic;
 }
@@ -69,7 +69,7 @@
 }
 
 .toggle-buttons button.active {
-  background: #4f8bff;
+  background: linear-gradient(135deg, #8c9bde 0%, #1334c4 100%);
   color: white;
 }
 
