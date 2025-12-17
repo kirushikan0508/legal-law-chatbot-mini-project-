@@ -23,8 +23,10 @@ export default function Dashboard() {
             users: response.totalUsers,
             templates: response.totalTemplates,
             documents: response.totalDocuments,
+            
           });
-        }
+
+        } 
       } catch (error) {
         console.error("Dashboard Summary Error:", error);
       } finally {
@@ -41,21 +43,23 @@ export default function Dashboard() {
       <p className="dashboard-subtext">Here is your platform overview</p>
 
       <div className="dashboard-grid">
-        <AdminCard
-          title="Total Users"
-          value={loading ? "Loading..." : summary.users}
+        <AdminCard 
+          title="Total Users" 
+          value={loading ? "Loading..." : summary.users} 
         />
 
-        <AdminCard
-          title="Templates"
-          value={loading ? "Loading..." : summary.templates}
+        <AdminCard 
+          title="Templates" 
+          value={loading ? "Loading..." : summary.templates} 
         />
 
         <AdminCard
           title="Legal Documents"
           value={loading ? "Loading..." : summary.documents}
         />
+        
       </div>
     </div>
   );
 }
+
