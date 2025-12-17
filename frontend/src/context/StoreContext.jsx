@@ -312,6 +312,221 @@ const StoreContextProvider = (props) => {
     }
   };
 
+  // --- ADMIN FUNCTIONS ---
+
+  // Get admin dashboard statistics
+  const getAdminStats = async () => {
+    if (!token) {
+      return {
+        success: false,
+        message: "Please login to access admin panel",
+      };
+    }
+
+    try {
+      const response = await axios.get(`${url}/api/admin/stats`, {
+        headers: {
+          token: token,
+        },
+      });
+      return response.data;
+    } catch (error) {
+      console.error("Get admin stats failed:", error.response?.data || error.message);
+      return (
+        error.response?.data || {
+          success: false,
+          message: "Failed to load admin statistics",
+        }
+      );
+    }
+  };
+
+  // Get all users (admin only)
+  const getAllUsers = async (page = 1, limit = 10) => {
+    if (!token) {
+      return {
+        success: false,
+        message: "Please login to access admin panel",
+      };
+    }
+
+    try {
+      const response = await axios.get(
+        `${url}/api/admin/users?page=${page}&limit=${limit}`,
+        {
+          headers: {
+            token: token,
+          },
+        }
+      );
+      return response.data;
+    } catch (error) {
+      console.error("Get all users failed:", error.response?.data || error.message);
+      return (
+        error.response?.data || {
+          success: false,
+          message: "Failed to load users",
+        }
+      );
+    }
+  };
+
+  // Delete user (admin only)
+  const deleteUser = async (userId) => {
+    if (!token) {
+      return {
+        success: false,
+        message: "Please login to access admin panel",
+      };
+    }
+
+    try {
+      const response = await axios.delete(`${url}/api/admin/users/${userId}`, {
+        headers: {
+          token: token,
+        },
+      });
+      return response.data;
+    } catch (error) {
+      console.error("Delete user failed:", error.response?.data || error.message);
+      return (
+        error.response?.data || {
+          success: false,
+          message: "Failed to delete user",
+        }
+      );
+    }
+  };
+
+  // Upload document as admin
+  const uploadAdminDocument = async (title, file) => {
+    if (!token) {
+      return {
+        success: false,
+        message: "Please login to upload documents",
+      };
+    }
+
+    setLoading(true);
+    try {
+      const formData = new FormData();
+      formData.append("title", title);
+      formData.append("document", file);
+
+      const response = await axios.post(
+        `${url}/api/admin/documents/upload`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            token: token,
+          },
+        }
+      );
+
+      return response.data;
+    } catch (error) {
+      console.error("Upload document failed:", error.response?.data || error.message);
+      return (
+        error.response?.data || {
+          success: false,
+          message: "Failed to upload document",
+        }
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Get all uploaded documents (admin only)
+  const getAdminDocuments = async (page = 1, limit = 10, status = "") => {
+    if (!token) {
+      return {
+        success: false,
+        message: "Please login to access documents",
+      };
+    }
+
+    try {
+      let apiUrl = `${url}/api/admin/documents?page=${page}&limit=${limit}`;
+      if (status) {
+        apiUrl += `&status=${status}`;
+      }
+
+      const response = await axios.get(apiUrl, {
+        headers: {
+          token: token,
+        },
+      });
+      return response.data;
+    } catch (error) {
+      console.error("Get admin documents failed:", error.response?.data || error.message);
+      return (
+        error.response?.data || {
+          success: false,
+          message: "Failed to load documents",
+        }
+      );
+    }
+  };
+
+  // Get document statistics (admin only)
+  const getDocumentStats = async () => {
+    if (!token) {
+      return {
+        success: false,
+        message: "Please login to access document statistics",
+      };
+    }
+
+    try {
+      const response = await axios.get(`${url}/api/admin/documents/stats`, {
+        headers: {
+          token: token,
+        },
+      });
+      return response.data;
+    } catch (error) {
+      console.error("Get document stats failed:", error.response?.data || error.message);
+      return (
+        error.response?.data || {
+          success: false,
+          message: "Failed to load document statistics",
+        }
+      );
+    }
+  };
+
+  // Delete document (admin only)
+  const deleteAdminDocument = async (documentId) => {
+    if (!token) {
+      return {
+        success: false,
+        message: "Please login to delete documents",
+      };
+    }
+
+    try {
+      const response = await axios.delete(
+        `${url}/api/admin/documents/${documentId}`,
+        {
+          headers: {
+            token: token,
+          },
+        }
+      );
+      return response.data;
+    } catch (error) {
+      console.error("Delete document failed:", error.response?.data || error.message);
+      return (
+        error.response?.data || {
+          success: false,
+          message: "Failed to delete document",
+        }
+      );
+    }
+  };
+
   // --- DOCUMENT GENERATION FUNCTIONS ---
 
   // Generate legal document
@@ -1245,7 +1460,7 @@ const StoreContextProvider = (props) => {
           required: true,
         },
         {
-          employeePosition: "employeePosition",
+          name: "employeePosition",
           label: "Employee Position",
           type: "text",
           required: true,
@@ -1525,6 +1740,15 @@ const StoreContextProvider = (props) => {
     getChatSession,
     updateSessionTitle,
     deleteChatSession,
+
+    // Admin Functions
+    getAdminStats,
+    getAllUsers,
+    deleteUser,
+    uploadAdminDocument,
+    getAdminDocuments,
+    getDocumentStats,
+    deleteAdminDocument,
 
     // Document Generation Functions
     generateDocument,

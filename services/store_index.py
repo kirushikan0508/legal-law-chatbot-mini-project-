@@ -1,8 +1,7 @@
 from dotenv import load_dotenv
 import os
 from src.helper import load_pdf_files, filter_to_minimal_docs, text_split, download_embeddings
-from pinecone import Pinecone
-from pinecone import ServerlessSpec
+from pinecone import Pinecone, ServerlessSpec
 from langchain_pinecone import PineconeVectorStore
 
 load_dotenv()
@@ -24,15 +23,13 @@ pc = Pinecone(api_key=pinecone_api_key)
 
 index_name = "legallaw-chatbot"
 
-if not pc.has_index(index_name):
+if index_name not in pc.list_indexes().names():
     pc.create_index(
         name=index_name,
         dimension=384,
         metric="cosine",
         spec=ServerlessSpec(cloud="aws", region="us-east-1")
     )
-
-index = pc.Index(index_name)
 
 docsearch = PineconeVectorStore.from_documents(
     documents=texts_chunk,
