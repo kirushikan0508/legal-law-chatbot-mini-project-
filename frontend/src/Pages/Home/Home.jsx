@@ -38,7 +38,7 @@ return (
 
        <Navbar /> 
 
-       <header>
+        <header>
           {user && (
             <p className="welcome-text">
               Welcome, <span>{name}</span> 
@@ -46,20 +46,22 @@ return (
           )}
        </header>
 
-
-        {/* Hero Section */}
-       <div className="hero-section">
-          <div className="hero-icon"><FaBalanceScale /></div>
-          <span className="hero-badge">Powered by AI . Free for everyone</span>
-          <h1 className="hero-title">Legal Guidance <br /> <span>Democratized</span></h1>
-          <p className="hero-subtext">Get instant, accurate legal information tailored to Sri Lankan law. Understanding your rights has never been easier</p>
-            
-          {/* Home section */}
-          <section className="hero-buttons">
-                <button className="start-btn" onClick={handleClick} >Start Your Legal Query</button> 
-                <button className="learn-btn" onClick = {handleClickDocument}>Generate your Document</button>
-          </section>
-       </div>
+      <div className="home-main">
+      
+            {/* Hero Section */}
+          <div className="hero-section">
+              <div className="hero-icon"><FaBalanceScale /></div>
+              <span className="hero-badge">Powered by AI . Free for everyone</span>
+              <h1 className="hero-title">Legal Guidance <br /> <span>Democratized</span></h1>
+              <p className="hero-subtext">Get instant, accurate legal information tailored to Sri Lankan law. Understanding your rights has never been easier</p>
+                
+              {/* Home section */}
+              <section className="hero-buttons">
+                    <button className="start-btn" onClick={handleClick} >Start Your Legal Query</button> 
+                    <button className="learn-btn" onClick = {handleClickDocument}>Generate your Document</button>
+              </section>
+          </div>
+      </div>
 
         {/* Feature Cards */}
         <section className="feature-section">
@@ -90,8 +92,9 @@ return (
             For specific legal matters, please consult a qualified attorney.
            </p>
           </section>
+    </div>
 
-        </div>
+  
   
   );
 }

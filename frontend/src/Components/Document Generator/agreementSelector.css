@@ -1,6 +1,7 @@
 .agreement-selector {
   padding: 20px;
   animation: fadeIn 0.3s ease;
+  font-family: "Segoe UI", sans-serif;
 }
 
 .agreement-selector h3 {
@@ -59,7 +60,7 @@
 }
 
 .agreement-btn.selected {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #667eea 0%, #1938c0 100%);
   border-color: #667eea;
   color: white;
 }
@@ -75,7 +76,7 @@
 
 .doc-icon {
   font-size: 20px;
-  color: #667eea;
+  color: #102781;
   flex-shrink: 0;
 }
 

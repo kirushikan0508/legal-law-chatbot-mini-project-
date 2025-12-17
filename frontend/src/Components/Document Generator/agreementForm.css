@@ -1,6 +1,7 @@
 .agreement-form {
   padding: 20px;
   animation: fadeIn 0.3s ease;
+  font-family: "Segoe UI", sans-serif;
 }
 
 .agreement-form h3 {
@@ -66,7 +67,7 @@
 }
 
 .generate-btn {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg,#667eea 0%, #1938c0 100%);
   color: white;
   border: none;
   padding: 14px 30px;

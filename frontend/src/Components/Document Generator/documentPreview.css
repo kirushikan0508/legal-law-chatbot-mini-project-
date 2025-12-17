@@ -6,6 +6,7 @@
   flex: 1;
   min-width: 300px;
   animation: slideIn 0.3s ease;
+  font-family: "Segoe UI", sans-serif;
 }
 
 .preview-header {
@@ -13,7 +14,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  background: linear-gradient(135deg, #667eea 100%, #764ba2 0%);
+  background: linear-gradient(135deg, #667eea 0%, #1938c0 100%);
   color: white;
 }
 
@@ -72,7 +73,7 @@
 .document-divider {
   border: none;
   height: 2px;
-  background: linear-gradient(to right, transparent, #667eea, transparent);
+  background: linear-gradient(to right, transparent, #223eb7, transparent);
   margin: 0 auto;
   width: 80%;
 }

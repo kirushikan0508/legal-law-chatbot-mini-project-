@@ -32,14 +32,14 @@
 }
 
 .logo-box {
-  background-color: #a9c8eb;
+  background: linear-gradient(135deg, #667eea 0%, #1938c0 100%);
   padding: 10px;
   border-radius: 12px;
 }
 
 .logo-icon {
   font-size: 22px;
-  color: #002855;
+  color:black;
 }
 
 .title-box h2 {
@@ -87,7 +87,7 @@
 }
 
 .logout-btn {
-  background-color:#164ec5;
+  background: linear-gradient(135deg, #667eea 0%, #1938c0 100%);
   border: none;
   color: black;
   font-weight: 700;

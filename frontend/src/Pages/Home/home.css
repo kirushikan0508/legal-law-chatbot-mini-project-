@@ -1,7 +1,7 @@
 .welcome-text {
   font-size: 32px;
   font-weight: 500;
-  color: #1b2a52;
+  color: #000000;
   text-align: center;
   margin-top: 30px;
   position: relative; 
@@ -9,7 +9,7 @@
 
 .welcome-text span {
   font-weight: 700;
-  color: #1c3faa;
+  color: rgb(235, 242, 243);
 }
 
 .welcome-text::after {
@@ -17,16 +17,29 @@
   display: block;
   width: 120px;
   height: 4px;
-  background: linear-gradient(90deg, #a9c8eb, #1c3faa);
+  background: linear-gradient(90deg, #e9edf1, #011142);
   margin: 10px auto 0;
   border-radius: 2px;
 }
 
  /* --- Base Page --- */
+.home-main{
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  min-height: 500px;
+  width: 85%;
+  margin: 40px auto;
+  
+}
+
+
 .home-container {
   width: 100%;
   min-height: 100vh;
-  background: linear-gradient(to bottom right, #f9fafc, #eef2f5);
+  /* background: linear-gradient(to bottom right, #f9fafc, #eef2f5); */
+  background: linear-gradient(135deg, #667eea 0%, #1938c0 100%);
   font-family: "Segoe UI", sans-serif;
   text-align: center;
 }
@@ -40,13 +53,13 @@
   width: 70px;
   height: 70px;
   margin: 0 auto 20px;
-  background: #dce8f7;
+  background: linear-gradient(135deg, #667eea 0%, #1938c0 100%);
   border-radius: 14px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 32px;
-  color: #083494;
+  color: black;
 }
 
 .hero-badge {
@@ -96,7 +109,7 @@
 }
 
 .start-btn {
-  background: #083494;
+  background: linear-gradient(135deg, #667eea 0%, #1938c0 100%);
   color: white;
 }
 
@@ -139,18 +152,20 @@
 
 .feature-icon {
   font-size: 36px;
-  color:#083494;
+  color:black;
   margin-bottom: 10px;
 }
 
 .feature-card h3 {
   font-size: 18px;
   margin-bottom: 8px;
+  color: rgb(235, 242, 243);
 }
 
 .feature-card p {
   font-size: 14px;
-  color: #666;
+  color: #000000;
+  
 }
 
 /* --- Legal Notice --- */
@@ -163,7 +178,7 @@
 
 .legal-notice {
   font-size: 14px;
-  color:  #666;
+  color: rgb(235, 242, 243);
   line-height: 1.6;
   padding: 12px 16px;
   /* The vertical yellow line */

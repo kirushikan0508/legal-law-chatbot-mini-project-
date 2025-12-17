@@ -1,7 +1,8 @@
 .document-page {
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #5067ca 0%,  #1a3fb0 100%);
   padding-bottom: 40px;
+  font-family: "Segoe UI", sans-serif;
 }
 
 .document-container {
@@ -68,7 +69,7 @@
 
 .stepper-item.active .stepper-number {
   background: white;
-  color: #667eea;
+  color: #213aa8;
   border-color: white;
 }
 
@@ -107,7 +108,7 @@
 .back-btn {
   background: none;
   border: none;
-  color: #667eea;
+  color: #091f7f;
   font-size: 14px;
   cursor: pointer;
   padding: 8px 16px;
@@ -171,26 +172,28 @@
 .feature-icon {
   font-size: 32px;
   margin-bottom: 15px;
-  color: white;
+  color: rgb(43, 40, 40);
 }
 
 .feature-card h4 {
   margin-bottom: 10px;
   font-size: 1.2rem;
+  color: rgb(225, 234, 236);
 }
 
 .feature-card p {
   font-size: 0.9rem;
   opacity: 0.8;
+  color: black
 }
 
 .legal-disclaimer {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
+  
+  border-radius: 0;
   padding: 20px;
-  color: white;
+  color: rgb(225, 234, 236);
   margin-top: 40px;
-  border-left: 4px solid #ff6b6b;
+  border-left: 4px solid #f4c042;
 }
 
 .legal-disclaimer p {
