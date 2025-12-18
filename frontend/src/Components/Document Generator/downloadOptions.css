@@ -47,7 +47,7 @@
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.pdf-btn {
+.download-btn.pdf-btn {
   background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
   color: white;
 }
@@ -56,7 +56,7 @@
   box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
 }
 
-.docx-btn {
+.download-btn.docx-btn {
   background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
   color: white;
 }
@@ -65,7 +65,7 @@
   box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
 }
 
-.copy-btn {
+.download-btn.copy-btn {
   background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
   color: white;
 }
@@ -74,7 +74,7 @@
   box-shadow: 0 5px 15px rgba(46, 204, 113, 0.3);
 }
 
-.print-btn {
+.download-btn.print-btn {
   background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);
   color: white;
 }

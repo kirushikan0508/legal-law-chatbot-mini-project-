@@ -172,19 +172,19 @@
 .feature-icon {
   font-size: 32px;
   margin-bottom: 15px;
-  color: rgb(43, 40, 40);
+  color: white;
 }
 
 .feature-card h4 {
   margin-bottom: 10px;
   font-size: 1.2rem;
-  color: rgb(225, 234, 236);
+  color: white;
 }
 
 .feature-card p {
   font-size: 0.9rem;
   opacity: 0.8;
-  color: black
+  color: rgb(225, 234, 236);
 }
 
 .legal-disclaimer {
