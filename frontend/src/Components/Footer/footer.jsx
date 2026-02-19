@@ -23,9 +23,9 @@ function Footer() {
     { name: "Home", path: "/home" },
     { name: "Legal Query", path: "/chatting" },
     { name: "Document Generator", path: "/document" },
-    { name: "Templates", path: "/templates" },
+    /*{ name: "Templates", path: "/templates" },
     { name: "Pricing", path: "/pricing" },
-    { name: "About Us", path: "/about" },
+    { name: "About Us", path: "/about" },*/
   ];
 
   const socialLinks = [
