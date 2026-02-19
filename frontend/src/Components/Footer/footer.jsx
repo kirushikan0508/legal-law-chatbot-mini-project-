@@ -48,7 +48,7 @@ function Footer() {
                 <MdGavel className="logo-icon" />
               </div>
               <div className="logo-text">
-                <h2>LexAssist AI</h2>
+                <h2>Legal Assistant AI</h2>
                 <p>Intelligent Legal Solutions</p>
               </div>
             </Link>
@@ -151,8 +151,8 @@ function Footer() {
       <div className="footer-bottom">
         <div className="footer-bottom-container">
           <p className="copyright">
-            &copy; {currentYear} LexAssist AI. All rights reserved. Powered by
-            Sri Lankan Law.
+            &copy; {currentYear} Legal Assistant AI. All rights reserved.
+            Powered by Sri Lankan Law.
           </p>
           <div className="bottom-links">
             <Link to="/privacy">Privacy Policy</Link>

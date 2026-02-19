@@ -227,8 +227,8 @@ function Home() {
         <div className="cta-content">
           <h2>Ready to simplify your legal journey?</h2>
           <p>
-            Join thousands of satisfied users who trust LexAssist AI for their
-            legal needs.
+            Join thousands of satisfied users who trust Legal Assistant AI for
+            their legal needs.
           </p>
           <button className="cta-primary" onClick={() => navigate("/chatting")}>
             Get Started Now
@@ -242,10 +242,10 @@ function Home() {
         <div className="legal-notice-content">
           <FaShieldAlt className="legal-icon" />
           <p>
-            <strong>Important Notice:</strong> LexAssist AI provides general
-            legal information and document templates based on Sri Lankan law.
-            This is not a substitute for professional legal advice. For specific
-            legal matters, please consult a qualified attorney.
+            <strong>Important Notice:</strong> Legal Assistant AI provides
+            general legal information and document templates based on Sri Lankan
+            law. This is not a substitute for professional legal advice. For
+            specific legal matters, please consult a qualified attorney.
           </p>
         </div>
       </section>
