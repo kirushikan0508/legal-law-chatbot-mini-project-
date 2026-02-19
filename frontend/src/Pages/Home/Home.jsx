@@ -109,7 +109,7 @@ function Home() {
       {/* Features Section */}
       <section className="features-section">
         <div className="section-header">
-          <h2>Why Choose LexAssist AI?</h2>
+          <h2>Why Choose Legal Assistant AI?</h2>
           <p>
             Experience the future of legal assistance with our cutting-edge
             features
@@ -188,7 +188,7 @@ function Home() {
       <section className="how-it-works">
         <div className="section-header">
           <h2>How It Works</h2>
-          <p>Get started with LexAssist AI in three simple steps</p>
+          <p>Get started with Legal Assistant AI in three simple steps</p>
         </div>
 
         <div className="steps-container">
@@ -226,8 +226,8 @@ function Home() {
         <div className="cta-content">
           <h2>Ready to simplify your legal journey?</h2>
           <p>
-            Join thousands of satisfied users who trust LexAssist AI for their
-            legal needs.
+            Join thousands of satisfied users who trust Legal Assistant AI for
+            their legal needs.
           </p>
           <button className="cta-primary" onClick={() => navigate("/chatting")}>
             Get Started Now
@@ -241,10 +241,10 @@ function Home() {
         <div className="legal-notice-content">
           <FaShieldAlt className="legal-icon" />
           <p>
-            <strong>Important Notice:</strong> LexAssist AI provides general
-            legal information and document templates based on Sri Lankan law.
-            This is not a substitute for professional legal advice. For specific
-            legal matters, please consult a qualified attorney.
+            <strong>Important Notice:</strong> Legal Assistant AI provides
+            general legal information and document templates based on Sri Lankan
+            law. This is not a substitute for professional legal advice. For
+            specific legal matters, please consult a qualified attorney.
           </p>
         </div>
       </section>
