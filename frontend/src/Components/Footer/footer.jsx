@@ -2,12 +2,6 @@ import React from "react";
 import "./footer.css";
 import { Link } from "react-router-dom";
 import {
-  FaBalanceScale,
-  FaFacebook,
-  FaTwitter,
-  FaLinkedin,
-  FaInstagram,
-  FaYoutube,
   FaEnvelope,
   FaPhone,
   FaMapMarkerAlt,
@@ -52,10 +46,6 @@ function Footer() {
             </p>
 
             <div className="contact-info">
-              <div className="contact-item">
-                <FaMapMarkerAlt className="contact-icon" />
-                <span>Colombo 03, Sri Lanka</span>
-              </div>
               <div className="contact-item">
                 <FaPhone className="contact-icon" />
                 <span>+94 11 234 5678</span>
