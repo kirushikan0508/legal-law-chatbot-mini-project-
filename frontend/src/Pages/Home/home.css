@@ -524,8 +524,8 @@
 
 /* Legal Notice Section */
 .legal-notice-section-modern {
-  padding: 60px 8%;
-  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+  padding: 20px 8%;
+  /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);*/
 }
 
 .legal-notice-content {
@@ -559,7 +559,7 @@
 
 /* CTA Section */
 .cta-section {
-  padding: 100px 8%;
+  padding: 50px 8%;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   text-align: center;
 }
@@ -579,7 +579,7 @@
 .cta-content p {
   font-size: 1.1rem;
   color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 /* Responsive Design */

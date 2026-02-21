@@ -243,19 +243,20 @@ function Home() {
             <FaArrowRight className="cta-icon" />
           </button>
         </div>
-      </section>
 
-      {/* Legal Notice Section */}
-      <section className="legal-notice-section-modern">
-        <div className="legal-notice-content">
-          <FaShieldAlt className="legal-icon" />
-          <p>
-            <strong>Important Notice:</strong> Legal Assistant AI provides
-            general legal information and document templates based on Sri Lankan
-            law. This is not a substitute for professional legal advice. For
-            specific legal matters, please consult a qualified attorney.
-          </p>
-        </div>
+        {/* Legal Notice Section */}
+        <section className="legal-notice-section-modern">
+          <div className="legal-notice-content">
+            <FaShieldAlt className="legal-icon" />
+            <p>
+              <strong>Important Notice:</strong> Legal Assistant AI provides
+              general legal information and document templates based on Sri
+              Lankan law. This is not a substitute for professional legal
+              advice. For specific legal matters, please consult a qualified
+              attorney.
+            </p>
+          </div>
+        </section>
       </section>
 
       <Footer />
