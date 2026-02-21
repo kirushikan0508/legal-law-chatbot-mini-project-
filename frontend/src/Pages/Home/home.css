@@ -289,6 +289,18 @@
   animation-delay: 4s;
 }
 
+.card-4 {
+  top: 10%;
+  right: 35%;
+  animation-delay: 1s;
+}
+
+.card-5 {
+  bottom: 55%;
+  right: 5%;
+  animation-delay: 3s;
+}
+
 .card-icon {
   font-size: 3rem;
   color: #667eea;

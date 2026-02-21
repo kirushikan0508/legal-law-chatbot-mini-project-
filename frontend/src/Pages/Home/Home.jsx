@@ -104,6 +104,14 @@ function Home() {
             <FaBalanceScale className="card-icon" />
             <span>Rights</span>
           </div>
+          <div className="floating-card card-4">
+            <FaRobot className="card-icon" />
+            <span>AI Powered</span>
+          </div>
+          <div className="floating-card card-5">
+            <FaShieldAlt className="card-icon" />
+            <span>Secure</span>
+          </div>
         </div>
       </section>
 
