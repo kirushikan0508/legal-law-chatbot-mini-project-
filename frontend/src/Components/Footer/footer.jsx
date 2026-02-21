@@ -28,14 +28,6 @@ function Footer() {
     { name: "About Us", path: "/about" },*/
   ];
 
-  const socialLinks = [
-    { icon: <FaFacebook />, url: "https://facebook.com", label: "Facebook" },
-    { icon: <FaTwitter />, url: "https://twitter.com", label: "Twitter" },
-    { icon: <FaLinkedin />, url: "https://linkedin.com", label: "LinkedIn" },
-    { icon: <FaInstagram />, url: "https://instagram.com", label: "Instagram" },
-    { icon: <FaYoutube />, url: "https://youtube.com", label: "YouTube" },
-  ];
-
   return (
     <footer className="footer">
       {/* Main Footer */}
@@ -124,28 +116,6 @@ function Footer() {
       </div>
 
       {/* Social Media Bar */}
-      <div className="social-bar">
-        <div className="social-container">
-          <div className="social-links">
-            {socialLinks.map((social, index) => (
-              <a
-                key={index}
-                href={social.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="social-link"
-                aria-label={social.label}
-              >
-                {social.icon}
-              </a>
-            ))}
-          </div>
-          <div className="trust-badge">
-            <FaBalanceScale className="badge-icon" />
-            <span>Trusted by 10,000+ Legal Professionals</span>
-          </div>
-        </div>
-      </div>
 
       {/* Bottom Bar */}
       <div className="footer-bottom">
