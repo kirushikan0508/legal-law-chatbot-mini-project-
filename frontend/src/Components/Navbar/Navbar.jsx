@@ -57,7 +57,7 @@ function Navbar() {
 
       <div className="navbar-right-desktop">
         <button onClick={handleLogout} className="logout-btn-desktop">
-          <FiLogOut />
+          <FiLogOut /> Logout
         </button>
       </div>
 
