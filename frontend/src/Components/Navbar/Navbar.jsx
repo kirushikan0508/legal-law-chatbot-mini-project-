@@ -1,14 +1,16 @@
 import "./navbar.css";
 import { Link, useNavigate } from "react-router-dom";
-import { FiLogOut, FiMenu, FiX, FiFileText } from "react-icons/fi";
+import { FiLogOut, FiLogIn, FiMenu, FiX, FiFileText } from "react-icons/fi";
 import { FaBalanceScale, FaRegUserCircle } from "react-icons/fa";
 import { MdAssignment, MdGavel } from "react-icons/md";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { StoreContext } from "../../context/StoreContext";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const navigate = useNavigate();
+  const { token, logoutUser } = useContext(StoreContext);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,8 +23,12 @@ function Navbar() {
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
   const handleLogout = () => {
-    localStorage.removeItem("loggedInUser");
+    logoutUser();
     navigate("/");
+  };
+
+  const handleLogin = () => {
+    navigate("/auth");
   };
 
   return (
@@ -56,9 +62,15 @@ function Navbar() {
       </div>
 
       <div className="navbar-right-desktop">
-        <button onClick={handleLogout} className="logout-btn-desktop">
-          <FiLogOut /> Logout
-        </button>
+        {token ? (
+          <button onClick={handleLogout} className="logout-btn-desktop">
+            <FiLogOut /> Logout
+          </button>
+        ) : (
+          <button onClick={handleLogin} className="login-btn-desktop">
+            <FiLogIn /> Login
+          </button>
+        )}
       </div>
 
       {/* Mobile Menu Toggle */}
@@ -84,10 +96,15 @@ function Navbar() {
         <Link to="/document" className="mobile-nav-link" onClick={toggleMenu}>
           <MdAssignment className="mobile-icon" /> Documents
         </Link>
-
-        <button onClick={handleLogout} className="mobile-logout-btn">
-          <FiLogOut className="mobile-icon" /> Logout
-        </button>
+        {token ? (
+          <button onClick={handleLogout} className="mobile-logout-btn">
+            <FiLogOut className="mobile-icon" /> Logout
+          </button>
+        ) : (
+          <button onClick={handleLogin} className="mobile-login-btn">
+            <FiLogIn className="mobile-icon" /> Login
+          </button>
+        )}
       </div>
     </nav>
   );

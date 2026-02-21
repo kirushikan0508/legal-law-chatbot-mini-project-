@@ -17,28 +17,17 @@ import { MdSpeed, MdSecurity } from "react-icons/md";
 
 function Home() {
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
     const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
-    if (!loggedInUser) {
-      alert("Please log in first!");
-      navigate("/");
-    } else {
+    if (loggedInUser) {
       setUser(loggedInUser);
     }
-    setLoading(false);
-  }, [navigate]);
+  }, []);
 
   const name = user ? user.email.split("@")[0] : "";
-
-  if (loading)
-    return (
-      <div className="loading-container">
-        <div className="loading-spinner"></div>
-      </div>
-    );
 
   return (
     <div className="home-container">
