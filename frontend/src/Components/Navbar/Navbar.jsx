@@ -44,6 +44,9 @@ function Navbar() {
         <Link to="/home" className="nav-link">
           Home
         </Link>
+        <a href="/home#how-it-works" className="nav-link">
+          How It Works
+        </a>
         <Link to="/chatting" className="nav-link">
           Legal Query
         </Link>
@@ -68,6 +71,13 @@ function Navbar() {
         <Link to="/home" className="mobile-nav-link" onClick={toggleMenu}>
           <FaBalanceScale className="mobile-icon" /> Home
         </Link>
+        <a
+          href="/home#how-it-works"
+          className="mobile-nav-link"
+          onClick={toggleMenu}
+        >
+          <FaBalanceScale className="mobile-icon" /> How It Works
+        </a>
         <Link to="/chatting" className="mobile-nav-link" onClick={toggleMenu}>
           <FiFileText className="mobile-icon" /> Legal Query
         </Link>

@@ -186,7 +186,7 @@ function Home() {
       </section>
 
       {/* How It Works Section */}
-      <section className="how-it-works">
+      <section className="how-it-works" id="how-it-works">
         <div className="section-header">
           <h2>How It Works</h2>
           <p>Get started with LexAssist AI in three simple steps</p>
