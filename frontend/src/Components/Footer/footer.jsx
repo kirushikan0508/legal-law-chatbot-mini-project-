@@ -52,7 +52,7 @@ function Footer() {
               </div>
               <div className="contact-item">
                 <FaEnvelope className="contact-icon" />
-                <span>support@lexassist.lk</span>
+                <span>support@legalassistantai.lk</span>
               </div>
               <div className="contact-item">
                 <FaRegClock className="contact-icon" />

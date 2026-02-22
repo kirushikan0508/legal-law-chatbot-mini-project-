@@ -221,7 +221,7 @@ function Home() {
       >
         <div className="section-header">
           <h2>How It Works</h2>
-          <p>Get started with LexAssist AI in three simple steps</p>
+          <p>Get started with Legal Assistant AI in three simple steps</p>
         </div>
 
         <div className="steps-container">
