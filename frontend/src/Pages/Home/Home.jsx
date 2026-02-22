@@ -138,7 +138,7 @@ function Home() {
         ref={(el) => sectionsRef.current.push(el)}
       >
         <div className="section-header">
-          <h2>Why Choose LexAssist AI?</h2>
+          <h2>Why Choose Legal Assistant AI?</h2>
           <p>
             Experience the future of legal assistance with our cutting-edge
             features
