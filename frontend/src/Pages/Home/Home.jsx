@@ -1,6 +1,6 @@
 import Navbar from "../../Components/Navbar/Navbar";
 import "./home.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import Footer from "../../Components/Footer/Footer";
 import {
@@ -19,12 +19,40 @@ function Home() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const sectionsRef = useRef([]);
 
   useEffect(() => {
     const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
     if (loggedInUser) {
       setUser(loggedInUser);
     }
+  }, []);
+
+  useEffect(() => {
+    // Intersection Observer for smooth animations on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px",
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animate-in");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    sectionsRef.current.forEach((section) => {
+      if (section) observer.observe(section);
+    });
+
+    return () => {
+      sectionsRef.current.forEach((section) => {
+        if (section) observer.unobserve(section);
+      });
+    };
   }, []);
 
   const name = user ? user.email.split("@")[0] : "";
@@ -105,7 +133,10 @@ function Home() {
       </section>
 
       {/* Features Section */}
-      <section className="features-section">
+      <section
+        className="features-section"
+        ref={(el) => sectionsRef.current.push(el)}
+      >
         <div className="section-header">
           <h2>Why Choose LexAssist AI?</h2>
           <p>
@@ -183,7 +214,11 @@ function Home() {
       </section>
 
       {/* How It Works Section */}
-      <section className="how-it-works" id="how-it-works">
+      <section
+        className="how-it-works"
+        id="how-it-works"
+        ref={(el) => sectionsRef.current.push(el)}
+      >
         <div className="section-header">
           <h2>How It Works</h2>
           <p>Get started with LexAssist AI in three simple steps</p>
@@ -220,7 +255,10 @@ function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="cta-section">
+      <section
+        className="cta-section"
+        ref={(el) => sectionsRef.current.push(el)}
+      >
         <div className="cta-content">
           <h2>Ready to simplify your legal journey?</h2>
           <p>
