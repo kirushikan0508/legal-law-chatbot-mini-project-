@@ -25,7 +25,8 @@ const loginUser = async (req, res) => {
         res.json({
             success: true,
             token,
-            message: "Login successful"
+            message: "Login successful",
+            user: { id: user._id, name: user.name, email: user.email, role: 'user' }
         });
 
     } catch (error) {
@@ -34,14 +35,15 @@ const loginUser = async (req, res) => {
     }
 }
 
-// Create JWT token
-const createToken = (id) => {
-    return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: '7d' }); // Added expiration
+// Create JWT token with user type
+const createToken = (id, userType = 'user') => {
+    return jwt.sign({ id, userType },
+           process.env.JWT_SECRET, { expiresIn: '7d' });
 }
 
 // Register user
 const registerUser = async (req, res) => {
-    const { name, email, password } = req.body; // Extract from request body
+    const { name, email, password } = req.body;
 
     try {
         // Check if user already exists
@@ -81,12 +83,13 @@ const registerUser = async (req, res) => {
 
         // Save the new user in database
         const user = await newUser.save();
-        const token = createToken(user._id);
+        const token = createToken(user._id, 'user');
         
         res.json({
             success: true,
             token,
-            message: "User registered successfully"
+            message: "User registered successfully",
+            user: { id: user._id, name: user.name, email: user.email,  role: 'user' }
         });
 
     } catch (error) {

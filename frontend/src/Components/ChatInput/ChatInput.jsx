@@ -18,6 +18,8 @@ function ChatInput({ onSend, disabled }){
   };
 
     return(
+
+      <div>
        <div className="chat-input-container">
         <input
           type="text"
@@ -30,6 +32,18 @@ function ChatInput({ onSend, disabled }){
         <button onClick={handleSend} title="Send message" disabled={disabled}>
           <FiSend className="send-icon" />
         </button>
+      </div>
+
+      {/* Disclaimer */}
+      
+        <section className="disclaimer">
+          <p>
+            <strong>Legal Disclaimer:</strong> This AI provides general legal
+            information only. For specific legal advice, consult a qualified Sri
+            Lankan attorney.
+          </p>
+        </section>
+   
     </div>
     );
 

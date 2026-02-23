@@ -1,59 +1,90 @@
+/* Entire page layout */
 .auth-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 30px;
+  background: linear-gradient(135deg, #8c9bde 0%, #1334c4 100%);
+  min-height: 100vh;
+  padding-top: 40px;
+  font-family: "Segoe UI", Arial, sans-serif;
 }
 
+/* Header */
 .auth-header {
-  background-color: #8eb8e5;
-  width: 100%;
   text-align: center;
-  padding: 15px 0;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
 
 .auth-header h1 {
-  font-size: 22px;
-  margin: 0;
-  font-weight: bold;
+  font-size: 28px;
+  color:rgb(47, 44, 44);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
 }
 
 .auth-header p {
-  margin-top: 5px;
-  font-size: 13px;
+  font-size: 14px;
+ color:rgb(47, 44, 44);
+  margin-top: -5px;
   font-style: italic;
 }
 
+/* Auth Card Box */
 .auth-box {
+  background: #ffffff;
   width: 420px;
-  border: 1px solid #d3d3d3;
-  border-radius: 10px;
-  padding: 25px;
-  background: white;
+  padding: 32px 40px;
+  border-radius: 18px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e5e9f2;
+  transition: 0.3s ease;
 }
 
+.auth-box:hover {
+  box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.10);
+}
+
+/* Toggle buttons (Login | SignUp) */
 .toggle-buttons {
   display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
+  background: #eef3ff;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 25px;
 }
 
 .toggle-buttons button {
-  width: 50%;
-  padding: 10px 0;
+  flex: 1;
+  padding: 12px 0;
   border: none;
   cursor: pointer;
-  font-size: 14px;
-  background-color: #d4e4f8; 
-  color: #000;
-  transition: 0.3s;
+  font-size: 15px;
+  font-weight: 600;
+  background: transparent;
+  color: #3a4d81;
+  transition: 0.2s ease;
 }
 
-.toggle-buttons .active {
-  background-color: #6ca8ff;
-  color: #fff;
-  font-weight: bold;
+.toggle-buttons button.active {
+  background: linear-gradient(135deg, #8c9bde 0%, #1334c4 100%);
+  color: white;
 }
 
+.toggle-buttons button:hover:not(.active) {
+  background: #e4ecff;
+}
 
+/* Mobile */
+@media (max-width: 480px) {
+  .auth-box {
+    width: 90%;
+    padding: 25px 25px;
+  }
+
+  .auth-header h1 {
+    font-size: 22px;
+  }
+}
