@@ -1,4 +1,5 @@
 from flask import Flask , render_template, jsonify, request
+from flask_cors import CORS
 from src.helper import download_embeddings
 from langchain_pinecone import PineconeVectorStore
 from langchain_google_genai import ChatGoogleGenerativeAI
@@ -10,6 +11,7 @@ from src.prompt import System_prompt
 import os
 
 app = Flask(__name__)
+CORS(app)
 
 
 

@@ -1,0 +1,109 @@
+.agreement-selector {
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.agreement-selector h3 {
+  color: #2c3e50;
+  margin-bottom: 8px;
+  font-size: 1.5rem;
+}
+
+.agreement-subtitle {
+  color: #7f8c8d;
+  margin-bottom: 25px;
+  font-size: 0.95rem;
+}
+
+.agreement-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.category-section {
+  border-left: 3px solid #3498db;
+  padding-left: 15px;
+}
+
+.category-title {
+  color: #2c3e50;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.category-docs {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.agreement-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.agreement-btn:hover {
+  transform: translateY(-3px);
+  border-color: #3498db;
+  box-shadow: 0 5px 15px rgba(52, 152, 219, 0.1);
+}
+
+.agreement-btn.selected {
+  background: linear-gradient(135deg, #667eea 0%, #1938c0 100%);
+  border-color: #667eea;
+  color: white;
+}
+
+.agreement-btn.selected .doc-icon {
+  color: white;
+}
+
+.agreement-btn.selected .doc-name {
+  color: white;
+  font-weight: 500;
+}
+
+.doc-icon {
+  font-size: 20px;
+  color: #102781;
+  flex-shrink: 0;
+}
+
+.doc-name {
+  font-size: 14px;
+  color: #2c3e50;
+  font-weight: 500;
+  flex-grow: 1;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .category-docs {
+    grid-template-columns: 1fr;
+  }
+
+  .agreement-selector {
+    padding: 15px;
+  }
+}
